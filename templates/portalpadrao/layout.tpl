@@ -15,6 +15,7 @@
 <body>
 
   <div class="page-container">
+    <h3>Teste</h3>
 
     {include file="portalpadrao/base/header.tpl"}
     {include file="portalpadrao/index/content.tpl"}
