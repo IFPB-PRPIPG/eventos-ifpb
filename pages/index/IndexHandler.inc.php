@@ -75,10 +75,18 @@ class IndexHandler extends Handler {
 
 			// Otherwise, show a list of hosted conferences.
 
+			//DAOs custom (adicionados especificamente para o projeto do portal)
+			$announcementDao =& DAORegistry::getDAO('AnnouncementDAO');
+			//Função custom para pegar todas as notícias
+			$announcements =& $announcementDao->getAllAm();
+
 			$templateMgr->assign('intro', $site->getLocalizedIntro());
 			$conferences =& $conferenceDao->getEnabledConferences();
 			$templateMgr->assign_by_ref('conferences', $conferences);
+			$templateMgr->assign_by_ref('site', $site);
+			$templateMgr->assign('announcements', $announcements);
 			$templateMgr->setCacheability(CACHEABILITY_PUBLIC);
+			$templateMgr->assign('portalIndex', true);
 			$templateMgr->display('portalpadrao/layout.tpl');
 		}
 	}
