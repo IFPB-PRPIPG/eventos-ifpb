@@ -240,6 +240,18 @@ class PKPAnnouncementDAO extends DAO {
 	 * @param $assocType int
 	 * @return object DAOResultFactory containing matching Announcements
 	 */
+
+	/* Função para pegar noticias e exibir na homepage */
+	function getAllAm() {
+		$result =& $this->retrieveRange(
+			'SELECT * FROM announcements WHERE (date_expire IS NULL OR date_expire > CURRENT_DATE) 
+			ORDER BY date_posted DESC LIMIT 3'
+		);
+		$returner = new DAOResultFactory($result, $this, '_returnAnnouncementFromRow');
+		return $returner;
+
+	}
+
 	function &getNumAnnouncementsByAssocId($assocType, $assocId, $numAnnouncements, $rangeInfo = null) {
 		$result =& $this->retrieveRange(
 			'SELECT *
