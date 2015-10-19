@@ -17,8 +17,8 @@
 </head>
 <body>
 
-{include file="portalpadrao/revista/base/header.tpl"}
-	{include file="portalpadrao/revista/body.tpl"}
+{include file="portalpadrao/conferencia/base/header.tpl"}
+	{include file="portalpadrao/conferencia/body.tpl"}
 {include file="portalpadrao/base/footer.tpl"}
 </body>
 </html>
