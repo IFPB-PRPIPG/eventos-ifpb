@@ -5,73 +5,91 @@
     </a>
   </div>
   <!-- Caixa de conteúdo -->
-  {if $currentJournal}
   <ul class="box">
-    <li class="item header">Sobre o periódico</li>
-    <li class="item i-home">
-      <a href="{url page="index"}">{translate key="navigation.home"}</a>
+    <li class="item header">Sobre o evento</li>
+    <li class="item">
+      <a href="{url context=$homeContext op="index"}">{translate key="navigation.home"}</a>
     </li>
-    <li class="item i-editions">
-      <a href="{url page="issue" op="archive"}">{translate key="issue.issues"}</a>
+    <li class="item">
+      <a href="{url page="about"}">{translate key="navigation.about"}</a>
     </li>
-    <li class="item i-search">
+    {if $isUserLoggedIn}
+      <li class="item">
+        <a href="{url conference="index" page="user"}">{translate key="navigation.userHome"}</a>
+      </li>
+    {else}
+      <li class="item">
+        <a href="{url page="login"}">{translate key="navigation.login"}</a>
+      </li>
+      <li class="item">
+        <a href="{url page="user" op="account"}">{translate key="navigation.account"}</a>
+      </li>
+    {/if}{* $isUserLoggedIn *}
+
+    <li class="item">
       <a href="{url page="search"}">{translate key="navigation.search"}</a>
     </li>
+
+    {if $currentConference}
+      {if $currentSchedConfsExist}
+        <li class="item">
+          <a href="{url schedConf="index" page="schedConfs" op="current"}">{translate key="navigation.current"}</a>
+        </li>
+      {/if}
+      {if $archivedSchedConfsExist}
+        <li class="item">
+          <a href="{url schedConf="index" page="schedConfs" op="archive"}">
+            {translate key="navigation.archive"}
+          </a>
+        </li>
+      {/if}
+      {if $enableAnnouncements}
+        <li class="item">
+          <a href="{url page="announcement"}">
+            {translate key="announcement.announcements"}
+          </a>
+        </li>
+      {/if}{* $enableAnnouncements *}
+
+      {call_hook name="Templates::Common::Header::Navbar::CurrentConference"}
+    {/if}{* $currentConference *}
+
+    {foreach from=$navMenuItems item=navItem}
+      {if $navItem.url != '' && $navItem.name != ''}
+        <li class="item">
+          <a href="{if $navItem.isAbsolute}{$navItem.url|escape}{else}{$navItem.url|escape}{/if}">
+            {if $navItem.isLiteral}
+              {$navItem.name|escape}
+            {else}
+              {translate key=$navItem.name}
+            {/if}
+          </a>
+        </li>
+      {/if}
+    {/foreach}
   </ul>
-    <ul class="box">
-      <li class="item header">Submissão</li>
-      <li class="item">
-        <a href="{url journal=$journalPath page="author" op="submit"}">Submissão online</a>
-      </li>
-      {if $currentJournal->getLocalizedSetting('authorGuidelines') != ''}
-      <li class="item"><a href="{url page="about" op="submissions" anchor="authorGuidelines"}">{translate key="about.authorGuidelines"}</a>
-      </li>{/if}
-
-      {if $currentJournal->getLocalizedSetting('copyrightNotice') != ''}
-        <li class="item"><a href="{url page="about" op="submissions" anchor="copyrightNotice"}">{translate key="about.copyrightNotice"}</a>
-        </li>
-      {/if}
-
-      {if $currentJournal->getLocalizedSetting('privacyStatement') != ''}
-        <li class="item"><a href="{url page="about" op="submissions" anchor="privacyStatement"}">{translate key="about.privacyStatement"}</a>
-        </li>
-      {/if}
-
-      {if $authorFees}
-        <li class="item"><a href="{url page="about" op="submissions" anchor="authorFees"}">{translate key="about.authorFees"}</a>
-        </li>
-      {/if}
-
-      <li class="item"><a href="{url page="about" op="aboutThisPublishingSystem"}">{translate key="about.aboutThisPublishingSystem"}</a></li>
-    </ul>
-  {/if}
 
   <ul class="box">
     <li class="item header">Sobre</li>
     <li class="item">
       <a href="{url page="about"}">{translate key="navigation.about"}</a>
     </li>
-    <li class="item"><a href="{url page="about"}">{translate key="about.editorialTeam"}</a></li>    
-    {if not (empty($journalSettings.mailingAddress) && empty($journalSettings.contactName) && empty($journalSettings.contactAffiliation) && empty($journalSettings.contactMailingAddress) && empty($journalSettings.contactPhone) && empty($journalSettings.contactFax) && empty($journalSettings.contactEmail) && empty($journalSettings.supportName) && empty($journalSettings.supportPhone) && empty($journalSettings.supportEmail))}
-      <li class="item"><a href="{url page="about"}">{translate key="about.contact"}</a></li>
-    {/if}
   </ul>
-{if $isUserLoggedIn}
-  <!-- Menu de login-->
-  <ul class="box">
-    <li class="item header">Usuário</li>
-    {if $hasOtherJournals}
+  {if $isUserLoggedIn}
+    <!-- Menu de login-->
+    <ul class="box">
+      <li class="item header">Usuário</li>
+      {if $hasOtherJournals}
+        <li class="item">
+          <a href="{url journal="index" page="user"}">{translate key="navigation.userHome"}</a>
+        </li>
+      {/if}
       <li class="item">
-        <a href="{url journal="index" page="user"}">{translate key="navigation.userHome"}</a>
+        <a href="{url page="user" op="profile"}">{translate key="plugins.block.user.myProfile"}</a>
       </li>
-    {/if}
-    <li class="item">
-      <a href="{url page="user" op="profile"}">{translate key="plugins.block.user.myProfile"}</a>
-    </li>
-    <li class="item">
-      <a href="{url page="login" op="signOut"}">{translate key="plugins.block.user.logout"}</a>
-    </li>
-  </ul>
-  <!-- Fim Menu de login-->
-{/if}
+      <li class="item">
+        <a href="{url page="login" op="signOut"}">{translate key="plugins.block.user.logout"}</a>
+      </li>
+    </ul>
+  {/if}<!-- Fim Menu de login-->
 </sidebar>
