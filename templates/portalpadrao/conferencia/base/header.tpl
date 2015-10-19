@@ -70,6 +70,9 @@
           </label>
           <button class="btn btn-submit">Acessar</button>
         </form>
+        <form class="form-control form-login" action="{url page="user"}">
+              <button class="btn btn-submit">Cadastrar</button>
+        </form>
       {/if}
         </div>
     </div>
