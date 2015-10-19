@@ -73,7 +73,8 @@ class ConferenceHandler extends Handler {
 				$templateMgr->assign('enableAnnouncementsHomepage', $enableAnnouncementsHomepage);
 			}
 		} 
-		$templateMgr->display('conference/index.tpl');
+		$templateMgr->display('portalpadrao/conferencia/layout.tpl');
+		//$templateMgr->display('conference/index.tpl');
 	}
 }
 
