@@ -30,6 +30,17 @@ class TemplateManager extends PKPTemplateManager {
 		parent::PKPTemplateManager();
 
 		if (!defined('SESSION_DISABLE_INIT')) {
+			$session =& Request::getSession();
+			$this->assign_by_ref('userSession', $session);
+			$this->assign('loggedInUsername', $session->getSessionVar('username'));
+			$loginUrl = Request::url(null, null, 'login', 'signIn');
+			if (Config::getVar('security', 'force_login_ssl')) {
+				$loginUrl = String::regexp_replace('/^http:/', 'https:', $loginUrl);
+			}
+			$this->assign('userBlockLoginUrl', $loginUrl);
+		}
+
+		if (!defined('SESSION_DISABLE_INIT')) {
 			/**
 			 * Kludge to make sure no code that tries to connect to
 			 * the database is executed (e.g., when loading
@@ -94,16 +105,6 @@ class TemplateManager extends PKPTemplateManager {
 				/*
 				* Adicionada chamada global para login (userBlockLoginURL)
 				*/			
-				if (!defined('SESSION_DISABLE_INIT')) {
-					$session =& Request::getSession();
-					$this->assign_by_ref('userSession', $session);
-					$this->assign('loggedInUsername', $session->getSessionVar('username'));
-					$loginUrl = Request::url(null, 'login', 'signIn');
-					if (Config::getVar('security', 'force_login_ssl')) {
-						$loginUrl = String::regexp_replace('/^http:/', 'https:', $loginUrl);
-					}
-					$this->assign('userBlockLoginUrl', $loginUrl);
-				}
 
 				if (isset($schedConf)) {
 
