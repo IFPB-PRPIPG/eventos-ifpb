@@ -29,7 +29,7 @@
 
           <ul class="footer-box">
             <li class="title"><h4>Fale com o Editor do Portal</h4></li>
-            <li class="item">portalperiodicos@ifpb.edu.br</li>
+            <li class="item">portaleventos@ifpb.edu.br</li>
           </ul>
 
           <ul class="footer-box">
