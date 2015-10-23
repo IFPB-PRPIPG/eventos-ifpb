@@ -71,7 +71,7 @@
             {translate key="plugins.block.user.loggedInAs"} <strong>{$loggedInUsername|escape}</strong>
           {else}
             <span>Acesso do usuário</span>
-            <form class="form-control form-login" id="signinForm" name="login" method="post" action="{$loginUrl}">
+            <form class="form-control form-login" id="signinForm" name="login" method="post" action="{$userBlockLoginUrl}">
               <label for="loginUsername">{translate key="user.username"}
                 <input type="text" id="loginUsername" name="username">
               </label>
