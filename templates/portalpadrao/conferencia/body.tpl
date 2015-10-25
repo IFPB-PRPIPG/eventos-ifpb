@@ -11,7 +11,7 @@
           
 
           {* Página inicial *}
-          {if $journalIndex}
+          {if $conferenceHome}
             {include file="portalpadrao/conferencia/index/index.tpl"}
           {/if} <!-- fecha a index -->
           
