@@ -63,6 +63,7 @@ class SchedConfHandler extends Handler {
 		$templateMgr->assign('homepageImage', $conference->getLocalizedSetting('homepageImage'));
 		$templateMgr->assign('homepageImageAltText', $conference->getLocalizedSetting('homepageImageAltText'));
 		$templateMgr->assign('helpTopicId', 'user.currentArchives');
+		$templateMgr->assign('conferenceHome', true);
 		//$templateMgr->display('schedConf/index.tpl');
 		$templateMgr->display('portalpadrao/conferencia/layout.tpl');
 
