@@ -79,6 +79,7 @@
                 <input type="password" id="loginPassword" name="password" value="{$password|escape}">
               </label>
               <button class="btn btn-submit">Acessar</button>
+              {include file="conferencia/layout.tpl"}
             </form>
             <form class="form-control form-login" action="{url page="user"}">
               <button class="btn btn-submit">Cadastrar</button>
