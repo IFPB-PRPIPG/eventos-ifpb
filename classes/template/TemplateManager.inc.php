@@ -38,6 +38,24 @@ class TemplateManager extends PKPTemplateManager {
 				$loginUrl = String::regexp_replace('/^http:/', 'https:', $loginUrl);
 			}
 			$this->assign('userBlockLoginUrl', $loginUrl);
+
+			//Global!
+			//Como uma mesma variável não pode ser iterada duas vezes, 
+			//Foi necessário criar uma copia dos Conferences (eu em),
+			//Assim o $conferencias é utilizado na barra lateral
+			$searchInitial = Request::getUserVar('searchInitial');
+			$conferenceDao =& DAORegistry::getDAO('ConferenceDAO');
+			$rangeInfo = null;
+			$conferencias =& $conferenceDao->getConferences(/*
+				true,
+				$rangeInfo,
+				$searchInitial?JOURNAL_FIELD_TITLE:JOURNAL_FIELD_SEQUENCE,
+				$searchInitial?JOURNAL_FIELD_TITLE:null,
+				$searchInitial?'startsWith':null,
+				$searchInitial*/
+			);
+
+			$this->assign('conferencias', $conferencias);
 		}
 
 		if (!defined('SESSION_DISABLE_INIT')) {
