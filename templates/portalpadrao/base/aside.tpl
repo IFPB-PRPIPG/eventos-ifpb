@@ -8,9 +8,9 @@
   <!-- Caixa de conteúdo -->
   <ul class="box">
     <li class="item header">Eventos</li>
-      {iterate from=conferences item=conference}
+      {iterate from=conferencias item=conferencia}
         <li class="item">
-          <a href="{url conference=$conference->getPath() schedConf=""}" class="action">{$conference->getConferenceTitle()|escape}</a>
+          <a href="{url conference=$conferencia->getPath() schedConf=""}" class="action">{$conferencia->getConferenceTitle()|escape}</a>
         </li>
     {/iterate}
   </ul>
