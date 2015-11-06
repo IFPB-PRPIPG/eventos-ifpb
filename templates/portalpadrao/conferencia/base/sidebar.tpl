@@ -67,6 +67,26 @@
         </li>
       {/if}
     {/foreach}
+
+    <li class="item">
+      <a href="{url page="about"}">{translate key="schedConf.presentations.short"}</a>
+    </li>
+
+    <li class="item">
+      <a href="{url page="about"}">{translate key="schedConf.overview"}</a>
+    </li>
+
+    <li class="item">
+      <a href="{url page="about"}">{translate key="paper.submissions"}</a>
+    </li>
+
+    <li class="item">
+      <a href="{url page="about"}">{translate key="schedConf.accommodation"}</a>
+    </li>
+
+    <li class="item">
+        <a href="{url page="about" op="organizingTeam"}">{translate key="schedConf.supporters"}</a>
+    </li>
   </ul>
 
   <ul class="box">
