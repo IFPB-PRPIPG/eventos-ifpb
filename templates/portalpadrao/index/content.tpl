@@ -29,7 +29,7 @@
         {/if}
 
         {include file="portalpadrao/index/noticias.tpl"}
-        {*include file="portalpadrao/index/revistas.tpl"*}
+        {include file="portalpadrao/index/eventos.tpl"}
         {include file="portalpadrao/index/search.tpl"}
       {/if}
 
