@@ -6,7 +6,7 @@
     <div class="header-box">{$schedConf->getFullTitle()|escape}</div>
     {if $homepageImage}
       <div class="xs-1 mid-6">
-        <img class="image-responsible" src="{$publicFilesDir}/{$homepageImage.uploadName|escape}" width="{$homepageImage.width}" height="{$homepageImage.height}" {if $homepageImageAltText != ''}alt="{$homepageImageAltText|escape}"{else}alt="{translate key="common.conferenceHomepageImage.altText"}"{/if} />
+        <img class="image-responsible" src="{$publicFilesDir}/{$homepageImage.uploadName|escape}"{if $homepageImageAltText != ''}alt="{$homepageImageAltText|escape}"{else}alt="{translate key="common.conferenceHomepageImage.altText"}"{/if} />
       </div>
     {/if}
     <div id="issueDescription" class="text-box-section" style="text-align:justify;"><p>{$schedConf->getLocalizedSetting("introduction")}</p></div>
