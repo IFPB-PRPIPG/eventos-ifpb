@@ -56,6 +56,9 @@ class SchedConfHandler extends Handler {
 			}
 		}
 
+		
+
+
 		$templateMgr->assign('schedConf', $schedConf);
 
 		$templateMgr->assign('pageHierarchy', array(
