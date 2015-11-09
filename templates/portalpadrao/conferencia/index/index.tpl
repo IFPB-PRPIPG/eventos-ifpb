@@ -38,7 +38,7 @@
       <p><a href="{url schedConf=$schedConf->getPath()}" class="action">{translate key="site.schedConfView"}</a>
     {/iterate}
   {else}
-    <div class="header-box">{translate key="conference.noCurrentConferences"}</div>
+    <h1>{translate key="conference.noCurrentConferences"}</h1>
   {/if}
 {/if}
 <!-- Caixa de nóticias -->
