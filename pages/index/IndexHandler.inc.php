@@ -87,6 +87,7 @@ class IndexHandler extends Handler {
 			$templateMgr->assign('announcements', $announcements);
 			$templateMgr->setCacheability(CACHEABILITY_PUBLIC);
 			$templateMgr->assign('portalIndex', true);
+			$templateMgr->assign('numConferences', range(1, $conferences->count)); // Linha cria um array, para exibição das imagens na homepage
 			$templateMgr->display('portalpadrao/layout.tpl');
 		}
 	}

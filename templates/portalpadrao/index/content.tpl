@@ -11,22 +11,17 @@
 
     <!-- Meio -->
     <main class="main-content">
-
       {if $portalIndex}
         <img src="{$baseUrl}/templates/portalpadrao/assets/images/banner_periodicos_site.png" alt="" class="image-responsible banner-content">
-
-        <!-- slide -->
-        {if $showSlide == "true"}
-          <div class="slide-content">
-            <div class="fotorama" data-autoplay="true" data-arrows="true" data-navwidth="15%" data-max-width="100%">
-            {foreach from=$slideItems key=key item=item}
-              <div data-img="{$item.imagem}" data-caption="">
-                <a href="{$item.link}"></a>
-              </div>
-            {/foreach}
-            </div>
+  
+      <!-- slide -->
+        <div class="slide-content">
+          <div class="fotorama" data-autoplay="true" data-arrows="true" data-navwidth="15%" data-max-width="100%">
+          {foreach from=$numConferences key=key item=item}
+            <img src="{$baseUrl}/public/conferences/{$item}/homepageImage_pt_BR.jpg" alt="">
+          {/foreach}
           </div>
-        {/if}
+        </div>
 
         {include file="portalpadrao/index/noticias.tpl"}
         {include file="portalpadrao/index/eventos.tpl"}
