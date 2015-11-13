@@ -12,7 +12,6 @@
     <!-- Meio -->
     <main class="main-content">
       {if $portalIndex}
-        <img src="{$baseUrl}/templates/portalpadrao/assets/images/banner_periodicos_site.png" alt="" class="image-responsible banner-content">
   
       <!-- slide -->
         <div class="slide-content">

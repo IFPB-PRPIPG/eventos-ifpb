@@ -1,6 +1,3 @@
-<a href="{url journal="index" page="index"}">
-    <img src="{$baseUrl}/templates/portalpadrao/assets/images/banner_periodicos_site.png" alt="" class="image-responsible banner-content">
-</a>
 {if $schedConf}
 <div class="content-box">
     <div class="header-box">{$schedConf->getFullTitle()|escape}</div>
