@@ -80,6 +80,9 @@ class IndexHandler extends Handler {
 			//Função custom para pegar todas as notícias
 			$announcements =& $announcementDao->getAllAm();
 
+			//Função custom para pegar todas as ids e informações referentes a imagens
+			$numConferences =& $announcementDao->getAllIdImg();
+
 			$templateMgr->assign('intro', $site->getLocalizedIntro());
 			$conferences =& $conferenceDao->getEnabledConferences();
 			$templateMgr->assign_by_ref('conferences', $conferences);
@@ -87,7 +90,8 @@ class IndexHandler extends Handler {
 			$templateMgr->assign('announcements', $announcements);
 			$templateMgr->setCacheability(CACHEABILITY_PUBLIC);
 			$templateMgr->assign('portalIndex', true);
-			$templateMgr->assign('numConferences', range(1, $conferences->count)); // Linha cria um array, para exibição das imagens na homepage
+			$templateMgr->assign('numConferences', $numConferences); // Linha cria um array, para exibição das imagens na homepage
+			echo "<pre>", var_dump($numConferences->records->fields[1]), "</pre>";
 			$templateMgr->display('portalpadrao/layout.tpl');
 		}
 	}

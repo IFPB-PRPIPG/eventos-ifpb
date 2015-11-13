@@ -252,6 +252,14 @@ class PKPAnnouncementDAO extends DAO {
 
 	}
 
+	function getAllIdImg() {
+		$result =& $this->retrieveRange(
+			'SELECT conference_id, setting_value FROM conference_settings WHERE setting_name = "homepageImage" ');
+		$returner = new DAOResultFactory($result, $this, '_returnAnnouncementFromRow');
+		return $returner;
+
+	}
+
 	function &getNumAnnouncementsByAssocId($assocType, $assocId, $numAnnouncements, $rangeInfo = null) {
 		$result =& $this->retrieveRange(
 			'SELECT *
