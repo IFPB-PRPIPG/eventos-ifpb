@@ -27,6 +27,10 @@
         {include file="portalpadrao/index/search.tpl"}
       {/if}
 
+      {if $readAccomodation}
+        {include file="templates/schedConf/accommodation.tpl"}
+      {/if}
+
       {if $readNews}
         {include file="portalpadrao/news/read.tpl"}
       {/if}

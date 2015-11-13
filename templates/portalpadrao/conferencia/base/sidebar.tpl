@@ -31,15 +31,15 @@
     </li>
 
     <li class="item">
-      <a href="{url page="about"}">{translate key="schedConf.overview"}</a>
+      <a href="{url page="manager" op="timeline"}">{translate key="schedConf.overview"}</a>
     </li>
 
     <li class="item">
-      <a href="{url page="about"}">{translate key="paper.submissions"}</a>
+      <a href="{url page="about" op="submissions"}">{translate key="paper.submissions"}</a>
     </li>
 
     <li class="item">
-      <a href="{url page="about"}">{translate key="schedConf.accommodation"}</a>
+      <a href="{url page="manager" op="accommodation"}">{translate key="schedConf.accommodation"}</a>
     </li>
 
     <li class="item">

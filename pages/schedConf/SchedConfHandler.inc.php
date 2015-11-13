@@ -462,7 +462,9 @@ class SchedConfHandler extends Handler {
 		$templateMgr->assign('accommodationFiles', $schedConf->getLocalizedSetting('accommodationFiles'));
 
 		$templateMgr->assign('helpTopicId', 'conference.currentConferences.accommodation');
-		$templateMgr->display('schedConf/accommodation.tpl');
+		$templateMgr->assign('$readAccomodation', true);
+		$templateMgr->display('portalpadrao/layout.tpl');
+		//$templateMgr->display('schedConf/accommodation.tpl');
 	}
 
 	/**
