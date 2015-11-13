@@ -12,7 +12,7 @@
 {assign var="pageTitle" value="admin.siteAdmin"}
 {include file="common/header.tpl"}
 {/strip}
-<!--<div id="siteManagement">
+<div id="siteManagement">
 <h3>{translate key="admin.siteManagement"}</h3>
 
 <ul class="plain">
