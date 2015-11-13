@@ -140,8 +140,8 @@ class UserHandler extends Handler {
 		$templateMgr->assign('isValid', $isValid);
 		$templateMgr->assign('submissionsCount', $submissionsCount);
 		$templateMgr->assign('setupIncomplete', $setupIncomplete); 
-		//$templateMgr->display('user/index.tpl');
-		$templateMgr->display('portalpadrao/layout.tpl');
+		$templateMgr->display('user/index.tpl');
+		//$templateMgr->display('portalpadrao/layout.tpl');
 	}
 
 	/**
