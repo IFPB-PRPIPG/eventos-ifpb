@@ -101,7 +101,8 @@ class SchedConfHandler extends Handler {
 		$templateMgr->assign_by_ref('trackDirectors', $trackDirectors);
 
 		$templateMgr->assign('helpTopicId', 'conference.currentConferences.tracks');
-		$templateMgr->display('schedConf/trackPolicies.tpl');
+		$templateMgr->display('portalpadrao/schedConf/accommodation.tpl');
+		//$templateMgr->display('schedConf/trackPolicies.tpl');
 	}
 
 	/**
@@ -466,7 +467,7 @@ class SchedConfHandler extends Handler {
 		$templateMgr->assign('helpTopicId', 'conference.currentConferences.accommodation');
 		$templateMgr->assign('$readAccomodation', true);
 		$templateMgr->display('portalpadrao/layout.tpl');
-		//$templateMgr->display('schedConf/accommodation.tpl');
+		//$templateMgr->display('portalpadrao/conferencia/schedConf/accommodation.tpl');
 	}
 
 	/**

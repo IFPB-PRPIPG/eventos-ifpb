@@ -35,7 +35,7 @@
       {/if}
 
       {if $readAccomodation}
-        {include file="templates/schedConf/accommodation.tpl"}
+        {include file="portalpadrao/conferencia/schedConf/accommodation.tpl"}
       {/if}
 
       {if $readNews}
