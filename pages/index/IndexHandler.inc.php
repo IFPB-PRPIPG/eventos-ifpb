@@ -90,8 +90,8 @@ class IndexHandler extends Handler {
 			$templateMgr->assign('announcements', $announcements);
 			$templateMgr->setCacheability(CACHEABILITY_PUBLIC);
 			$templateMgr->assign('portalIndex', true);
-			$templateMgr->assign('numConferences', $numConferences); // Linha cria um array, para exibição das imagens na homepage
-			echo "<pre>", var_dump($numConferences->records->fields[1]), "</pre>";
+			$templateMgr->assign('confImg', unserialize($numConferences->records->fields[1]));	// Linha onde pego o array com informação da imagem nas homes das conferencia
+			$templateMgr->assign('confId', $numConferences->records->fields[0]);				// Linha onde pego o array com informação sobre id das conferencias
 			$templateMgr->display('portalpadrao/layout.tpl');
 		}
 	}

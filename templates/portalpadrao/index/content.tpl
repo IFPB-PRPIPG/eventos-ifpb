@@ -12,15 +12,22 @@
     <!-- Meio -->
     <main class="main-content">
       {if $portalIndex}
-  
-      <!-- slide -->
-        <div class="slide-content">
-          <div class="fotorama" data-autoplay="true" data-arrows="true" data-navwidth="15%" data-max-width="100%">
-          {foreach from=$numConferences key=key item=item}
-            <img src="{$baseUrl}/public/conferences/{$item}/homepageImage_pt_BR.jpg" alt="">
-          {/foreach}
+
+        <!-- slide -->
+        {if $confImg}
+          <div class="slidew-content">
+            <div class="fotorama" data-autoplay="true" data-arrows="true" data-navwidth="15%" data-max-width="100%">-->
+            {foreach from=$confId key=ke item=ite}
+              {foreach from=$confImg key=key item=item}
+                {if $key == uploadName}
+                  <img src="{$baseUrl}/public/conferences/{$ite}/{$item}" alt="" class="image-responsible banner-content">
+                {/if}
+              {/foreach}
+            {/foreach}
+            </div>
           </div>
-        </div>
+          <br>
+        {/if}
 
         {include file="portalpadrao/index/noticias.tpl"}
         {include file="portalpadrao/index/eventos.tpl"}
