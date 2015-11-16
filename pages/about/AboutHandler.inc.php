@@ -364,7 +364,9 @@ class AboutHandler extends Handler {
 		$templateMgr->assign('privacyStatement', $conference->getLocalizedSetting('privacyStatement'));
 
 		$templateMgr->assign('helpTopicId','submission.authorGuidelines');
-		$templateMgr->display('about/submissions.tpl');
+		$templateMgr->assign('$about_submission', true);
+		$templateMgr->display('portalpadrao/layout.tpl');
+		//$templateMgr->display('about/submissions.tpl');
 	}
 
 	/**

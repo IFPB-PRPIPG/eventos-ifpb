@@ -190,7 +190,9 @@ class SchedConfHandler extends Handler {
 		$templateMgr->assign('acceptingSubmissions', $acceptingSubmissions);
 		if (!$acceptingSubmissions) $templateMgr->assign('notAcceptingSubmissionsMessage', $notAcceptingSubmissionsMessage);
 		$templateMgr->assign('helpTopicId', 'conference.currentConferences.setup.submissions');
-		$templateMgr->display('schedConf/cfp.tpl');
+		$templateMgr->assign('$about_cfp', true);
+		$templateMgr->display('portalpadrao/layout.tpl');
+		//$templateMgr->display('schedConf/cfp.tpl');
 	}
 
 	/**

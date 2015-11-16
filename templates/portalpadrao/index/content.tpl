@@ -43,6 +43,14 @@
         {include file="portalpadrao/admin/index.tpl"}
       {/if}
 
+      {if $about_submission}
+        {include file="templates/about/submissions.tpl"}
+      {/if}
+      
+      {if $about_cfp}
+        {include file="templates/about/submissions.tpl"}
+      {/if}  
+
     </main> <!-- /main-container -->
   </div>
 </div>

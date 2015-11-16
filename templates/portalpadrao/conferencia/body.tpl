@@ -25,6 +25,15 @@
             {include file="portalpadrao/conferencia/register/register.tpl"}
           {/if}
 
+          {*Página de submissão no main da conferencia*}
+          {if $about_submission}
+            {include file="templates/schedConf/cfp.tpl"}
+          {/if}
+
+          {if $about_cfp}
+            {include file="templates/schedConf/cfp.tpl"}
+          {/if}
+
           {* Página de Anteriores / Atual*}
           {if $journalArchive}
             {include file="portalpadrao/conferencia/arquivo/list.tpl"}
