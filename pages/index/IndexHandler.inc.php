@@ -83,6 +83,18 @@ class IndexHandler extends Handler {
 			//Função custom para pegar todas as ids e informações referentes a imagens
 			$numConferences =& $announcementDao->getAllIdImg();
 
+
+			// Montando array com as imagens das conferencias para o slide
+			$resultado = array();
+			$r = $numConferences->records;
+			foreach($r as $c) {
+				$img = unserialize($c[1])['uploadName'];
+				array_push($resultado, array($c[0], $img));
+			}
+
+			$templateMgr->assign('resultado', $resultado);
+
+
 			$templateMgr->assign('intro', $site->getLocalizedIntro());
 			$conferences =& $conferenceDao->getEnabledConferences();
 			$templateMgr->assign_by_ref('conferences', $conferences);
@@ -90,8 +102,6 @@ class IndexHandler extends Handler {
 			$templateMgr->assign('announcements', $announcements);
 			$templateMgr->setCacheability(CACHEABILITY_PUBLIC);
 			$templateMgr->assign('portalIndex', true);
-			$templateMgr->assign('confImg', unserialize($numConferences->records->fields[1]));	// Linha onde pego o array com informação da imagem nas homes das conferencia
-			$templateMgr->assign('confId', $numConferences->records->fields[0]);				// Linha onde pego o array com informação sobre id das conferencias
 			$templateMgr->display('portalpadrao/layout.tpl');
 		}
 	}

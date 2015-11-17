@@ -14,15 +14,12 @@
       {if $portalIndex}
 
         <!-- slide -->
-        {if $confImg}
+        {if $resultado}
+        <!-- <h1>oi</h1> -->
           <div class="slidew-content">
             <div class="fotorama" data-autoplay="true" data-arrows="true" data-navwidth="15%" data-max-width="100%">-->
-            {foreach from=$confId key=ke item=ite}
-              {foreach from=$confImg key=key item=item}
-                {if $key == uploadName}
-                  <img src="{$baseUrl}/public/conferences/{$ite}/{$item}" alt="" class="image-responsible banner-content">
-                {/if}
-              {/foreach}
+            {foreach from=$resultado key=key item=conference}
+              <img src="{$baseUrl}/public/conferences/{$conference[0]}/{$conference[1]}" alt="" class="image-responsible banner-content">
             {/foreach}
             </div>
           </div>
