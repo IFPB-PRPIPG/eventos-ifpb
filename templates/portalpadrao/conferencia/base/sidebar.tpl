@@ -13,18 +13,18 @@
     <li class="item">
       <a href="{url page="about"}">{translate key="navigation.about"}</a>
     </li>
-    <li class="item">
-      <a href="{url page="schedConf" op=""}">Modalidades</a>
-    </li>
-    <li class="item">
-      <a href="{url page="schedConf" op=""}">Inscrições</a>
-    </li>
-    <li class="item">
-      <a href="{url page="schedConf" op="accommodation"}">Acomodações</a>
-    </li>
-    <li class="item">
-      <a href="{url page="schedConf" op="trackPolicies"}">Programação</a>
-    </li>
+        <!--<li class="item">
+          <a href="{url page="schedConf" op=""}">Modalidades</a>
+        </li>
+        <li class="item">
+          <a href="{url page="schedConf" op=""}">Inscrições</a>
+        </li>
+        <li class="item">
+          <a href="{url page="schedConf" op="accommodation"}">Acomodações</a>
+        </li>
+        <li class="item">
+          <a href="{url page="schedConf" op="trackPolicies"}">Programação</a>
+        </li>-->
   </ul>
 
   {if $isUserLoggedIn}
