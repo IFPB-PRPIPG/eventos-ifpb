@@ -461,13 +461,13 @@ class SchedConfHandler extends Handler {
 			array(Request::url(null, null, 'index'), $schedConf->getSchedConfTitle(), true)));
 		SchedConfHandler::setupTemplate($conference,$schedConf);
 
+
 		$templateMgr->assign('accommodationDescription', $schedConf->getLocalizedSetting('accommodationDescription'));
 		$templateMgr->assign('accommodationFiles', $schedConf->getLocalizedSetting('accommodationFiles'));
 
 		$templateMgr->assign('helpTopicId', 'conference.currentConferences.accommodation');
-		$templateMgr->assign('$readAccomodation', true);
-		$templateMgr->display('portalpadrao/layout.tpl');
-		//$templateMgr->display('portalpadrao/conferencia/schedConf/accommodation.tpl');
+		$templateMgr->assign('accommodation', true);
+		$templateMgr->display('portalpadrao/conferencia/layout.tpl');
 	}
 
 	/**

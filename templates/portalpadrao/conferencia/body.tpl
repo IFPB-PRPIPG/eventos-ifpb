@@ -55,6 +55,11 @@
           {if $registerLogin}
             {include file="portalpadrao/conferencia/register/register.tpl"}
           {/if}
+          
+          {* Página de visualização das acomodações *}
+          {if $accommodation}
+            {include file="portalpadrao/conferencia/informations/accommodation.tpl"}
+          {/if}
 
           <!-- footer -->
 	    <div class="content-box">{include file="common/footer.tpl"}</div>
