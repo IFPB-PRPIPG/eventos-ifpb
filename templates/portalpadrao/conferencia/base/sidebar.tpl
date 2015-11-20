@@ -13,31 +13,7 @@
     <li class="item">
       <a href="{url page="about"}">{translate key="navigation.about"}</a>
     </li>
-        <!--<li class="item">
-          <a href="{url page="schedConf" op=""}">Modalidades</a>
-        </li>
-        <li class="item">
-          <a href="{url page="schedConf" op=""}">Inscrições</a>
-        </li>
-        <li class="item">
-          <a href="{url page="schedConf" op="accommodation"}">Acomodações</a>
-        </li>
-        <li class="item">
-          <a href="{url page="schedConf" op="trackPolicies"}">Programação</a>
-        </li>-->
-  </ul>
-
-  {if $isUserLoggedIn}
-  <ul class="box">
-    <li class="item header">Usuario</li>
-      <li class="item">
-        <a href="{url conference="index" page="user"}">{translate key="navigation.userHome"}</a>
-      </li>
-  </ul>
-  {/if}{* $isUserLoggedIn *}
-
-  <ul class="box">
-    <li class="item header">Submissão</li>
+    
     <li class="item">
       <a href="{url page="about"}">{translate key="schedConf.presentations.short"}</a>
     </li>
@@ -51,12 +27,54 @@
     </li>
 
     <li class="item">
-      <a href="{url page="manager" op="accommodation"}">{translate key="schedConf.accommodation"}</a>
+      <a href="{url page="schedConf" op="accommodation"}">{translate key="schedConf.accommodation"}</a>
     </li>
 
     <li class="item">
         <a href="{url page="about" op="organizingTeam"}">{translate key="schedConf.supporters"}</a>
     </li>
+
+  </ul>
+
+  {if $isUserLoggedIn}
+  <ul class="box">
+    <li class="item header">Usuario</li>
+      <li class="item">
+        <a href="{url conference="index" page="user"}">{translate key="navigation.userHome"}</a>
+      </li>
+  </ul>
+  {/if}{* $isUserLoggedIn *}
+
+  <ul class="box">
+    <li class="item header">Submissão</li>
+    
+    <li class="item">
+      <a href="">Datas importantes</a>
+    </li>
+
+    <li class="item">
+      <a href="">Diretrizes</a>
+    </li>
+
+    <!--<li class="item">
+      <a href="{url page="about"}">{translate key="schedConf.presentations.short"}</a>
+    </li>
+
+    <li class="item">
+      <a href="{url page="manager" op="timeline"}">{translate key="schedConf.overview"}</a>
+    </li>
+
+    <li class="item">
+      <a href="{url page="about" op="submissions"}">{translate key="paper.submissions"}</a>
+    </li>
+
+    <li class="item">
+      <a href="{url page="informations" op="accommodation"}">{translate key="schedConf.accommodation"}</a>
+    </li>
+
+    <li class="item">
+        <a href="{url page="about" op="organizingTeam"}">{translate key="schedConf.supporters"}</a>
+    </li>-->
   </ul>
   {if $isUserLoggedIn}
     <!-- Menu de login-->
