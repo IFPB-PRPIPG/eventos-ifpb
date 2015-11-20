@@ -61,6 +61,16 @@
             {include file="portalpadrao/conferencia/informations/accommodation.tpl"}
           {/if}
 
+          {*Página de visualização das modalidades*}
+          {if $trackPolicies}
+            {include file="portalpadrao/conferencia/informations/trackPolicies.tpl"}
+          {/if}
+          
+          {*Página de visualização de inscrição*}
+          {if $registration_user}
+            {include file="portalpadrao/conferencia/informations/registrations.tpl.tpl"}
+          {/if}    
+
           <!-- footer -->
 	    <div class="content-box">{include file="common/footer.tpl"}</div>
 		

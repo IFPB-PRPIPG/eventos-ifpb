@@ -25,6 +25,14 @@
     <li class="item">
       <a href="{url page="about" op="submissions"}">{translate key="paper.submissions"}</a>
     </li>
+    
+    <li class="item">
+      <a href="{url page="schedConf" op="trackPolicies"}">{translate key="schedConf.trackPolicies"}</a>
+    </li>
+
+    <li class="item">
+      <a href="{url page="schedConf" op="registration"}">{translate key="schedConf.registration"}</a>
+    </li>
 
     <li class="item">
       <a href="{url page="schedConf" op="accommodation"}">{translate key="schedConf.accommodation"}</a>

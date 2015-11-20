@@ -103,6 +103,8 @@ class SchedConfHandler extends Handler {
 		$templateMgr->assign('helpTopicId', 'conference.currentConferences.tracks');
 		$templateMgr->display('portalpadrao/schedConf/accommodation.tpl');
 		//$templateMgr->display('schedConf/trackPolicies.tpl');
+		$templateMgr->assign('trackPolicies', true);
+		$templateMgr->display('portalpadrao/conferencia/layout.tpl');
 	}
 
 	/**
@@ -257,6 +259,9 @@ class SchedConfHandler extends Handler {
 			$templateMgr->assign_by_ref('registrationTypes', $registrationTypes);
 			return $templateMgr->display('registration/selectRegistrationType.tpl');
 		}
+
+		$templateMgr->assign('registration_user', true);
+		$templateMgr->display('portalpadrao/conferencia/layout.tpl');
 	}
 
 	/**
