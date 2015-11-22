@@ -19,7 +19,9 @@
           <div class="slidew-content">
             <div class="fotorama" data-autoplay="true" data-arrows="true" data-navwidth="15%" data-max-width="100%">-->
             {foreach from=$resultado key=key item=conference}
-              <img src="{$baseUrl}/public/conferences/{$conference[0]}/{$conference[1]}" alt="" class="image-responsible banner-content">
+              <a href="{$baseUrl}/index.php/{$conference[2]}">
+                <img src="{$baseUrl}/public/conferences/{$conference[0]}/{$conference[1]}" alt="" class="image-responsible banner-content">
+              </a>
             {/foreach}
             </div>
           </div>

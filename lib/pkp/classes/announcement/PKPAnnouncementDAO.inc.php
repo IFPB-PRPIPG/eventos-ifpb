@@ -254,7 +254,7 @@ class PKPAnnouncementDAO extends DAO {
 
 	function getAllIdImg() {
 		$result =& $this->retrieveRange(
-			'SELECT conference_id, setting_value FROM conference_settings WHERE setting_name = "homepageImage" ');
+			'SELECT cs.conference_id, cs.setting_value, cf.path FROM conference_settings cs join conferences cf on cs.conference_id = cf.conference_id WHERE setting_name = "homepageImage" ');
 		$returner = new DAOResultFactory($result, $this, '_returnAnnouncementFromRow');
 		return $returner;
 
