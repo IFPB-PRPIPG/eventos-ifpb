@@ -89,7 +89,7 @@ class IndexHandler extends Handler {
 			$r = $numConferences->records;
 			foreach($r as $c) {
 				$img = unserialize($c[1])['uploadName'];
-				array_push($resultado, array($c[0], $img));
+				array_push($resultado, array($c[0], $img, $c[2]));
 			}
 
 			$templateMgr->assign('resultado', $resultado);
