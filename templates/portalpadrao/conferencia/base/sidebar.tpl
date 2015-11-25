@@ -10,10 +10,7 @@
     <li class="item">
       <a href="{url context=$homeContext op="index"}">{translate key="navigation.home"}</a>
     </li>
-    <li class="item">
-      <a href="{url page="about"}">{translate key="navigation.about"}</a>
-    </li>
-    
+        
     <li class="item">
       <a href="{url page="about"}">{translate key="schedConf.presentations.short"}</a>
     </li>
@@ -101,4 +98,28 @@
       </li>
     </ul>
   {/if}<!-- Fim Menu de login-->
+    <!--Menu sobre -->
+    <ul class="box">
+      <li class="item header">Sobre</li>
+      
+        <li class="item">
+          <a href="{url page="about"}">{translate key="navigation.about"}</a>
+        </li>
+      
+        <li class="item">
+          <a href="{url page="about" op="contact"}">Equipe</a>
+        </li>
+
+        <li class="item">
+          <a href="{url page="about" op="contact"}">{translate key="about.contact"}</a>
+        </li>
+      
+    </ul>
+    <!--Menu Eventos anteriores-->
+
+    <ul class="box">
+      <li class="item header">Eventos Anteriores</li>
+            
+    </ul>
+
 </sidebar>

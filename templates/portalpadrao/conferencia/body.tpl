@@ -67,7 +67,7 @@
           {/if}
           
           {*Página de visualização de inscrição*}
-          {if $registration_user}
+          {if $registration}
             {include file="portalpadrao/conferencia/informations/registrations.tpl"}
           {/if}    
 

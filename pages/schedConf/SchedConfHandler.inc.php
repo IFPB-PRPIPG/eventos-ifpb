@@ -260,7 +260,7 @@ class SchedConfHandler extends Handler {
 			return $templateMgr->display('registration/selectRegistrationType.tpl');
 		}
 
-		$templateMgr->assign('registration_user', true);
+		$templateMgr->assign('registration', true);
 		$templateMgr->display('portalpadrao/conferencia/layout.tpl');
 	}
 

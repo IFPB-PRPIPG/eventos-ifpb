@@ -10,7 +10,12 @@ function sortSearch(heading, direction) {
 {/literal}
 </script>
 
-<ul class="menu">
+
+<div class="content-box">
+  <h2 class="header-box default">Inscrições</h2>
+  
+	
+	<ul class="menu">
 	<li class="current"><a href="{url op="registration" clearPageContext=1}">{translate key="manager.registration"}</a></li>
 	<li><a href="{url op="registrationTypes" clearPageContext=1}">{translate key="manager.registrationTypes"}</a></li>
 	<li><a href="{url op="registrationPolicies"}">{translate key="manager.registrationPolicies"}</a></li>
@@ -100,3 +105,9 @@ function sortSearch(heading, direction) {
 
 <a href="{url op="selectRegistrant"}" class="action">{translate key="manager.registration.create"}</a>
 </div>
+
+
+</div>
+
+
+
