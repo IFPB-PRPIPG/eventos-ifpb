@@ -69,7 +69,12 @@
           {*Página de visualização de inscrição*}
           {if $registration}
             {include file="portalpadrao/conferencia/informations/registrations.tpl"}
-          {/if}    
+          {/if}
+
+          {*Página de visualização da programação*}
+          {if $programacao}
+            {include file="portalpadrao/conferencia/informations/program.tpl"}
+          {/if}  
 
           <!-- footer -->
 	    <div class="content-box">{include file="common/footer.tpl"}</div>

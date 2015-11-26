@@ -36,7 +36,7 @@
     </li>
 
     <li class="item">
-        <a href="{url page="about" op="organizingTeam"}">{translate key="schedConf.supporters"}</a>
+        <a href="{url page="schedConf" op="program"}">{translate key="schedConf.program"}</a>
     </li>
 
   </ul>
