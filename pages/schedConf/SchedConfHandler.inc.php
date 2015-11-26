@@ -357,6 +357,9 @@ class SchedConfHandler extends Handler {
 		$templateMgr->assign('programFileTitle', $schedConf->getSetting('programFileTitle', AppLocale::getLocale()));
 		$templateMgr->assign('helpTopicId', 'conference.currentConferences.program');
 		$templateMgr->display('schedConf/program.tpl');
+
+		$templateMgr->assign('programacao', true);
+		$templateMgr->display('portalpadrao/conferencia/layout.tpl');
 	}
 
 	/**
