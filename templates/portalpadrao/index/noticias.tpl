@@ -21,7 +21,7 @@
     </div>
   <div class="footer-box">
     <div class="footer-content">
-      <a href="announcement/last">Mais notícias</a>
+      <a href="{url page="announcement" op="last"}">Mais notícias</a>
     </div>
   </div>
 </div>

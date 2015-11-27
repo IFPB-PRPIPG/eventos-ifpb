@@ -36,10 +36,7 @@ class PKPAnnouncementHandler extends Handler {
 			$templateMgr =& TemplateManager::getManager();
 			$templateMgr->assign('announcements', $announcements);
 			$templateMgr->assign('announcementsIntroduction', $announcementsIntroduction);
-			$templateMgr->assign('listNews', true);
-			$templateMgr->display('C:/wamp/www/eventos-ifpb/templates/portalpadrao/layout.tpl'); // Só funciona com o diretorio escrito
-			//$templateMgr->display('{$baseUrl}/templates/portalpadrao/layout.tpl'); NÃO DÁ CERTO!
-			//$templateMgr->display('announcement/index.tpl');
+			$templateMgr->display('announcement/index.tpl');
 		} else {
 			Request::redirect();
 		}

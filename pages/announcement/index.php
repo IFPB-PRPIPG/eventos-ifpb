@@ -26,6 +26,12 @@ switch ($op) {
 		define('HANDLER_CLASS', 'AnnouncementHandler');
 		import('pages.announcement.AnnouncementHandler');
 		break;
+		
+	case 'show':
+	case 'last':
+		define('HANDLER_CLASS', 'AnnouncementHandlerCustom');
+		import('pages.announcement.AnnouncementHandlerCustom');
+		break;
 }
 
 ?>

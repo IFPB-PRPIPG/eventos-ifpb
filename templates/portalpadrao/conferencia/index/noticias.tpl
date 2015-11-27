@@ -6,7 +6,7 @@
         <div class="xs-1 mid-4">
           <!-- Se houver link -->
           {if $announcement->getLocalizedDescription() != null}
-            <a href="{url page="announcement" op="view" path=$announcement->getId()}">
+            <a href="{url page="announcement" op="show" path=$announcement->getId()}">
           {/if}
           {if $announcement->getTypeId()}  
             <h3>{$announcement->getAnnouncementTypeName()}: {$announcement->getLocalizedTitle()}</h3>
