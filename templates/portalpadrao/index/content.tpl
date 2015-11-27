@@ -3,7 +3,6 @@
     <span></span>
   </div>
 </div>
-
 <!-- Conteúdo central + sidebar -->
 <div class="page-content">
   <div class="content-container">
@@ -15,13 +14,12 @@
 
         <!-- slide -->
         {if $resultado}
-        <!-- <h1>oi</h1> -->
-          <div class="slidew-content">
-            <div class="fotorama" data-autoplay="true" data-arrows="true" data-navwidth="15%" data-max-width="100%">-->
+          <div class="slide-content">
+            <div class="fotorama" data-autoplay="true" data-arrows="false" data-navwidth="15%" data-width="100%" data-maxheight="300">
             {foreach from=$resultado key=key item=conference}
-              <a href="{$baseUrl}/index.php/{$conference[2]}">
-                <img src="{$baseUrl}/public/conferences/{$conference[0]}/{$conference[1]}" alt="" class="image-responsible banner-content">
-              </a>
+              <div data-img="{$baseUrl}/public/conferences/{$conference[0]}/{$conference[1]}">
+               <a href="{$baseUrl}/index.php/{$conference[2]}"></a>
+              </div>
             {/foreach}
             </div>
           </div>
