@@ -19,6 +19,3 @@
 	<img src="{$baseUrl}/{$edProcessFile}" style="border: 0;" alt="{translate key="about.aboutThisPublishingSystem.altText"}" />
 </div>
 
-
-{include file="common/footer.tpl"}
-

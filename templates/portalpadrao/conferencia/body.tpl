@@ -74,11 +74,7 @@
           {*Página de visualização da programação*}
           {if $programacao}
             {include file="portalpadrao/conferencia/informations/program.tpl"}
-          {/if}  
-
-          <!-- footer -->
-	    <div class="content-box">{include file="common/footer.tpl"}</div>
-		
+          {/if}		
         </main>
       </div>
    </div> <!-- /page content -->
