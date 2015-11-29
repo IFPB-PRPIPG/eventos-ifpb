@@ -23,5 +23,15 @@
 {if $enableDebugStats}{include file=$pqpTemplate}{/if}
 
 </div><!-- container -->
+{if !$currentJournal}
+<div class="page-container">
+  {literal}
+  <style>
+  #rodape {float: left;width: 100%;}
+  </style>
+  {/literal}
+  {include file="portalpadrao/base/footer.tpl"}
+</div>
+{/if}
 </body>
 </html>

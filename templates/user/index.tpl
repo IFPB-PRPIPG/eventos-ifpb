@@ -15,7 +15,7 @@
 
 {if $isSiteAdmin}
 {assign var="hasRole" value=1}
-	&#187; <a href="{url conference="index" page=$isSiteAdmin->getRolePath()}">{translate key=$isSiteAdmin->getRoleName()}</a>
+	 <a href="{url conference="index" page=$isSiteAdmin->getRolePath()}">{translate key=$isSiteAdmin->getRoleName()}</a>
 	{call_hook name="Templates::User::Index::Admin"}
 {/if}
 
@@ -32,7 +32,7 @@
 	<table width="100%" class="info">
 		{if $isValid.ConferenceManager.$conferenceId.0}
 			<tr>
-				<td>&#187; <a href="{url conference=$conferencePath page="manager"}">{translate key="user.role.manager"}</a></td>
+				<td> <a href="{url conference=$conferencePath page="manager"}">{translate key="user.role.manager"}</a></td>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -52,7 +52,7 @@
 			{if $isValid.Director.$conferenceId.$schedConfId}
 				<tr>
 					{assign var="directorSubmissionsCount" value=$submissionsCount.Director.$conferenceId.$schedConfId}
-					<td>&#187; <a href="{url conference=$conferencePath schedConf=$schedConfPath  schedConf=$schedConfPath page="director"}">{translate key="user.role.director"}</a></td>
+					<td> <a href="{url conference=$conferencePath schedConf=$schedConfPath  schedConf=$schedConfPath page="director"}">{translate key="user.role.director"}</a></td>
 					<td>{if $directorSubmissionsCount[0]}
 							<a href="{url conference=$conferencePath schedConf=$schedConfPath  page="director" op="submissions" path="submissionsUnassigned"}">{$directorSubmissionsCount[0]} {translate key="common.queue.short.submissionsUnassigned"}</a>
 						{else}<span class="disabled">0 {translate key="common.queue.short.submissionsUnassigned"}</span>{/if}
@@ -70,7 +70,7 @@
 			{if $isValid.TrackDirector.$conferenceId.$schedConfId}
 				{assign var="trackDirectorSubmissionsCount" value=$submissionsCount.TrackDirector.$conferenceId.$schedConfId}
 				<tr>
-					<td>&#187; <a href="{url conference=$conferencePath schedConf=$schedConfPath  page="trackDirector"}">{translate key="user.role.trackDirector"}</a></td>
+					<td> <a href="{url conference=$conferencePath schedConf=$schedConfPath  page="trackDirector"}">{translate key="user.role.trackDirector"}</a></td>
 					<td></td>
 					<td colspan="3">
 						{if $trackDirectorSubmissionsCount[0]}
@@ -87,7 +87,7 @@
 			{if $isValid.Author.$conferenceId.$schedConfId}
 				{assign var="authorSubmissionsCount" value=$submissionsCount.Author.$conferenceId.$schedConfId}
 				<tr>
-					<td>&#187; <a href="{url conference=$conferencePath schedConf=$schedConfPath  page="author"}">{translate key="user.role.author"}</a></td>
+					<td> <a href="{url conference=$conferencePath schedConf=$schedConfPath  page="author"}">{translate key="user.role.author"}</a></td>
 					<td></td>
 					<td></td>
 					<td>{if $authorSubmissionsCount[0]}
@@ -100,7 +100,7 @@
 			{if $isValid.Reviewer.$conferenceId.$schedConfId}
 				{assign var="reviewerSubmissionsCount" value=$submissionsCount.Reviewer.$conferenceId.$schedConfId}
 				<tr>
-					<td>&#187; <a href="{url conference=$conferencePath schedConf=$schedConfPath  page="reviewer"}">{translate key="user.role.reviewer"}</a></td>
+					<td> <a href="{url conference=$conferencePath schedConf=$schedConfPath  page="reviewer"}">{translate key="user.role.reviewer"}</a></td>
 					<td></td>
 					<td></td>
 					<td>{if $reviewerSubmissionsCount[0]}
@@ -136,7 +136,7 @@
 			{if !empty($allSchedConfs[$conferenceId])}
 			<ul class="plain">
 			{foreach from=$allSchedConfs[$conferenceId] item=thisSchedConf key=schedConfId}
-				<li>&#187; <a href="{url conference=$thisConference->getPath() schedConf=$thisSchedConf->getPath() page="user" op="index"}">{$thisSchedConf->getSchedConfTitle()|escape}</a></li>
+				<li> <a href="{url conference=$thisConference->getPath() schedConf=$thisSchedConf->getPath() page="user" op="index"}">{$thisSchedConf->getSchedConfTitle()|escape}</a></li>
 			{/foreach}
 			</ul>
 			{/if}{* !empty($allSchedConfs[$conferenceId]) *}
@@ -145,7 +145,7 @@
 		<p>{translate key="user.noRoles.noRolesForConference"}</p>
 		<ul class="plain">
 			<li>
-				&#187;
+				
 				{if $allowRegAuthor}
 					{if $submissionsOpen}
 						<a href="{url page="author" op="submit"}">{translate key="user.noRoles.submitProposal"}</a>
@@ -157,7 +157,7 @@
 				{/if}{* $allowRegAuthor *}
 			</li>
 			<li>
-				&#187;
+				
 				{if $allowRegReviewer}
 					{url|assign:"userHomeUrl" page="user" op="index"}
 					<a href="{url op="become" path="reviewer" source=$userHomeUrl}">{translate key="user.noRoles.regReviewer"}</a>
@@ -166,7 +166,7 @@
 				{/if}{* $allowRegReviewer *}
 			</li>
 			<li>
-				&#187;
+				
 				{if $schedConfPaymentsEnabled}
 					<a href="{url page="schedConf" op="registration"}">{translate key="user.noRoles.register"}</a>
 				{else}{* $schedConfPaymentsEnabled *}
@@ -182,12 +182,12 @@
 <ul class="plain">
 	{if $hasOtherConferences}
 		{if !$showAllConferences}
-			<li>&#187; <a href="{url conference="index" page="user"}">{translate key="user.showAllConferences"}</a></li>
+			<li> <a href="{url conference="index" page="user"}">{translate key="user.showAllConferences"}</a></li>
 		{/if}
 	{/if}
-	<li>&#187; <a href="{url page="user" op="profile"}">{translate key="user.editMyProfile"}</a></li>
-	<li>&#187; <a href="{url page="user" op="changePassword"}">{translate key="user.changeMyPassword"}</a></li>
-	<li>&#187; <a href="{url page="login" op="signOut"}">{translate key="user.logOut"}</a></li>
+	<li> <a href="{url page="user" op="profile"}">{translate key="user.editMyProfile"}</a></li>
+	<li> <a href="{url page="user" op="changePassword"}">{translate key="user.changeMyPassword"}</a></li>
+	<li> <a href="{url page="login" op="signOut"}">{translate key="user.logOut"}</a></li>
 	{call_hook name="Templates::User::Index::MyAccount"}
 </ul>
 </div>

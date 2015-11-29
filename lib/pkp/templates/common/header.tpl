@@ -60,60 +60,88 @@
 
 	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/general.js"></script>
 	{$additionalHeadData}
+
+<link rel="stylesheet" href="http://necolas.github.io/normalize.css/3.0.2/normalize.css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{$baseUrl}/templates/portalpadrao/assets/stylesheet/style.css">
+<link rel="stylesheet" href="{$baseUrl}/templates/portalpadrao/assets/stylesheet/default.css">
 </head>
+{literal}
+  <style>
+    #body {
+      width: 960px;
+      margin: 0 auto;
+    }
+    #body:after,
+    #body:before {
+      clear: both;
+      display: table;
+      content: ' ';
+      zoom: 1;
+    }
+
+    #sidebar,
+    #leftSidebar {
+      float: left;
+    }
+
+    div#leftSidebar {
+      width: 100%;
+    }
+    #leftSidebar > #menu {
+      width: 100% !important;
+    }
+
+    #main {
+      margin-left: 1% !important;
+      border: 0;
+      width: 100%;
+      padding-left: 0.83333%;
+    }
+
+    div#rightSidebar {
+    	float: none;
+    	display: block;
+    	width: 100%;
+    }
+
+    a:hover {
+    	background: transparent;
+    }
+    table#customAboutItems-0-content_tbl.mceLayout {
+    	// width: 100%;
+    }
+  </style>
+{/literal}
 <body>
-<div id="container">
 
-<div id="header">
-<div id="headerTitle">
-<h1>
-{if $displayPageHeaderLogo && is_array($displayPageHeaderLogo)}
-	<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" width="{$displayPageHeaderLogo.width|escape}" height="{$displayPageHeaderLogo.height|escape}" {if $displayPageHeaderLogoAltText != ''}alt="{$displayPageHeaderLogoAltText|escape}"{else}alt="{translate key="common.pageHeaderLogo.altText"}"{/if} />
-{/if}
-{if $displayPageHeaderTitle && is_array($displayPageHeaderTitle)}
-	<img src="{$publicFilesDir}/{$displayPageHeaderTitle.uploadName|escape:"url"}" width="{$displayPageHeaderTitle.width|escape}" height="{$displayPageHeaderTitle.height|escape}" {if $displayPageHeaderTitleAltText != ''}alt="{$displayPageHeaderTitleAltText|escape}"{else}alt="{translate key="common.pageHeader.altText"}"{/if} />
-{elseif $displayPageHeaderTitle}
-	{$displayPageHeaderTitle}
-{elseif $alternatePageHeader}
-	{$alternatePageHeader}
-{elseif $customLogoTemplate}
-	{include file=$customLogoTemplate}
-{elseif $siteTitle}
-	{$siteTitle}
-{else}
-	{$applicationName}
-{/if}
-</h1>
-</div>
+
+{include file="portalpadrao/base/header.tpl"}
+
+
+<div class="page-breadcrumb">
+  <div class="content-container">
+    <span>
+
+    </span>
+  </div>
 </div>
 
-<div id="body">
-
+<div class="content-container">
+	<div id="main">
 {if $leftSidebarCode || $rightSidebarCode}
-	<div id="sidebar">
-		{if $leftSidebarCode}
-			<div id="leftSidebar">
-				{$leftSidebarCode}
-			</div>
-		{/if}
-		{if $rightSidebarCode}
-			<div id="rightSidebar">
-				{$rightSidebarCode}
-			</div>
-		{/if}
-	</div>
+  <div id="sidebar mid-3">
+      <div id="leftSidebar mid-12">
+            {include file="portalpadrao/base/aside.tpl"}
+      </div>
+  </div>
 {/if}
 
-<div id="main">
-{include file="common/navbar.tpl"}
+<div class="main-content">
+	{include file="common/breadcrumbs.tpl"}
+	<h2>{$pageTitleTranslated}</h2>
 
-{include file="common/breadcrumbs.tpl"}
-
-<h2>{$pageTitleTranslated}</h2>
-
-{if $pageSubtitle && !$pageSubtitleTranslated}{translate|assign:"pageSubtitleTranslated" key=$pageSubtitle}{/if}
-{if $pageSubtitleTranslated}
-	<h3>{$pageSubtitleTranslated}</h3>
-{/if}
-
-<div id="content">
+	{if $pageSubtitle && !$pageSubtitleTranslated}{translate|assign:"pageSubtitleTranslated" key=$pageSubtitle}{/if}
+	{if $pageSubtitleTranslated}
+		<h3>{$pageSubtitleTranslated}</h3>
+	{/if}
