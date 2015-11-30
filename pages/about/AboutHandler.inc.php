@@ -66,8 +66,8 @@ class AboutHandler extends Handler {
 			$templateMgr->assign('helpTopicId', 'user.about');
 			$templateMgr->assign_by_ref('conferenceSettings', $settings);
 			$templateMgr->assign('$conferenceAbout', true);
-			//$templateMgr->display('portalpadrao/conferencia/layout.tpl');
-			$templateMgr->display('about/index.tpl');
+			$templateMgr->display('portalpadrao/conferencia/layout.tpl');
+			//$templateMgr->display('about/index.tpl');
 		} else {
 			$site =& Request::getSite();
 			$about = $site->getLocalizedAbout();

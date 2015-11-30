@@ -13,7 +13,7 @@
 </head>
 <body>
 
-{include file="portalpadrao/conferencia/base/header.tpl"}
+{include file="portalpadrao/base/header.tpl"}
 	{include file="portalpadrao/conferencia/body.tpl"}
 {include file="portalpadrao/base/footer.tpl"}
 </body>
