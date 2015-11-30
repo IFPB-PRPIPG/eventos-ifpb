@@ -47,11 +47,11 @@
           </div>
           <form id="simpleSearchForm" method="post" action="{url page="search" op="search"}" class="form-control form-search-header">
             {capture assign="filterInput"}{call_hook name="Templates::Search::SearchResults::FilterInput" filterName="simpleQuery" filterValue="" size=15}{/capture}
-            <input name="query" class="search-input-header" type="text">
+            <!--<input name="query" class="search-input-header" type="text">
             <select id="searchField" name="searchField" size="1" style="display: none;">
               {html_options_translate options=$articleSearchByOptions}
             </select>
-            <button class="search-button"></button>
+            <button class="search-button"></button>-->
           </form>
         </div>
 
