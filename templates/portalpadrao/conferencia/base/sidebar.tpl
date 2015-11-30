@@ -52,6 +52,7 @@
   {if $schedConfPostOverview || $schedConfShowCFP || $schedConfPostPolicies || $schedConfShowProgram ||  $schedConfPostPresentations || $schedConfPostSchedule || $schedConfPostPayment  || $schedConfPostAccommodation || $schedConfPostSupporters  || schedConfPostTimeline}
   
   <ul class="box">
+<<<<<<< HEAD
 
   <li class="item header">{translate key="schedConf.contents"}</li>
     {if $schedConfPostOverview}
@@ -109,6 +110,84 @@
     {/if}
   </ul>
   {/if}
+=======
+
+  <li class="item header">{translate key="schedConf.contents"}</li>
+    {if $schedConfPostOverview}
+      <li class="item">
+        <a href="{url page="schedConf" op="overview"}">{translate key="schedConf.overview"}</a>
+      </li>
+    {/if}
+    {if $schedConfShowCFP}
+      <li class="item">
+        <a href="{url page="schedConf" op="cfp"}">{translate key="schedConf.cfp"}</a>
+        {if $submissionsOpenDate} 
+          ({$submissionsOpenDate|date_format:$dateFormatLong} - {$submissionsCloseDate|date_format:$dateFormatLong})
+        {/if}
+      </li>
+    {/if}
+    {if $schedConfPostTrackPolicies}
+      <li class="item">
+        <a href="{url page="schedConf" op="trackPolicies"}">{translate key="schedConf.trackPolicies"}</a>
+      </li>
+    {/if}
+    {if $schedConfShowProgram}
+      <li class="item">
+        <a href="{url page="schedConf" op="program"}">{translate key="schedConf.program"}</a>
+      </li>
+    {/if}
+    {if $schedConfPostPresentations}
+      <li class="item">
+        <a href="{url page="schedConf" op="presentations"}">{translate key="schedConf.presentations.short"}</a>
+      </li>
+    {/if}
+    {if $schedConfPostSchedule}
+      <li class="item">
+        <a href="{url page="schedConf" op="schedule"}">{translate key="schedConf.schedule"}</a>
+      </li>
+    {/if}
+    {if $schedConfPostPayment}
+      <li class="item">
+        <a href="{url page="schedConf" op="registration"}">{translate key="schedConf.registration"}</a>
+      </li>
+    {/if}
+    {if $schedConfPostAccommodation}
+      <li class="item">
+        <a href="{url page="schedConf" op="accommodation"}">{translate key="schedConf.accommodation"}</a>
+      </li>
+    {/if}
+    {if $schedConfPostSupporters}
+      <li class="item">
+        <a href="{url page="about" op="organizingTeam"}">{translate key="schedConf.supporters"}</a>
+      </li>
+    {/if}
+    {if $schedConfPostTimeline}
+      <li class="item">
+        <a href="{url page="schedConf" op="timeline"}">{translate key="schedConf.timeline"}</a>
+      </li>
+    {/if}
+  </ul>
+  {/if}
+
+  <!--Menu sobre -->
+  <ul class="box">
+    <li class="item header">Sobre</li>    
+    <li class="item">
+      <a href="{url page="about"}">{translate key="navigation.about"}</a>
+    </li>     
+    <li class="item">
+      <a href="{url page="about" op="contact"}">Equipe</a>
+    </li>
+    <li class="item">
+      <a href="{url page="about" op="contact"}">{translate key="about.contact"}</a>
+    </li>  
+  </ul>
+    <!--Menu Eventos anteriores-->
+
+  <ul class="box">
+    <li class="item header">Eventos Anteriores</li>           
+  </ul>
+>>>>>>> 8c70eac83e394a9a45829cf017fc1bdf8b635f32
 
   <!--Menu sobre -->
   <ul class="box">
