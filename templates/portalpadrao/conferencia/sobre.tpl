@@ -1,177 +1,194 @@
 <div class="text-box">
-  <a href="{url journal="index" page="index"}">
-      <img src="{$baseUrl}/templates/portalpadrao/assets/images/banner_periodicos_site.png" alt="" class="image-responsible banner-content">
-    </a>
-	<h2 class="header-title large-size">{$journalTitle}</h2>
+	<h2 class="header-title large-size">{$conferenceSettings.title.pt_BR}</h2>
 	<!-- Section Utilizada para descrição -->
 	<div class="text-box-section border-box">
-		<p>{$journalDescription}</p>
+		<p>{$conferenceSettings.description.pt_BR}</p>
 	</div>
-
-<div class="text-box-section border-box">
-		<h3 class="text-box-title large-size border-title-light">Equipe Editorial</h3>
-    <!-- editores -->
-
-      {foreach from=$groups item=group}
-      <div id="group">
-        <h4>{$group->getLocalizedTitle()}</h4>
-        {assign var=groupId value=$group->getId()}
-        {assign var=members value=$teamInfo[$groupId]}
-
-        <ol class="editorialTeam">
-          {foreach from=$members item=member}
-            {assign var=user value=$member->getUser()}
-            <div class="member"><a href="javascript:openRTWindow('{url op="editorialTeamBio" path=$user->getId()}')">{$user->getFullName()|escape}</a>{if $user->getLocalizedAffiliation()}, {$user->getLocalizedAffiliation()|escape}{/if}{if $user->getCountry()}{assign var=countryCode value=$user->getCountry()}{assign var=country value=$countries.$countryCode}, {$country|escape}{/if}</div>
-          {/foreach}{* $members *}
-        </ol>
-      </div>
-      {/foreach}{* $groups *}
-
-
-    {if count($editors) > 0}
-  		<ul class="text-list">
-  			{if count($editors) == 1}
-  				<li class="text-list-item-simple-header">
-            {translate key="user.role.editor"}
-          </li>
-  			{else}
-  				<li class="text-list-item-simple-header">
-            {translate key="user.role.editors"}
-          </li>			
-  			{/if}
-        {foreach from=$editors item=editor}
-  			<li class="text-list-item"><a href="">{$editor->getFullName()|escape}</a>
-        
-        {$affiliation[$formLocale]|escape}
-        
-        </li>
-        {/foreach}
-  		</ul>
-		{/if}
-
-    <!-- editores de section-->
-    {if count($sectionEditors) > 0}
-      <ul class="text-list">
-        {if count($sectionEditors) == 1}
-          <li class="text-list-item-simple-header">
-            {translate key="user.role.sectionEditor"}
-          </li>
-        {else}
-          <li class="text-list-item-simple-header">
-            {translate key="user.role.sectionEditors"}
-          </li>     
-        {/if}
-        {foreach from=$sectionEditors item=sectionEditor}
-        <li class="text-list-item">{$sectionEditors->getFullName()|escape}</li>
-        {/foreach}
-      </ul>
-    {/if}
-    
-    <!-- editores de de layout (?) -->
-    {if count($layoutEditors) > 0}
-      <ul class="text-list">
-        {if count($layoutEditors) == 1}
-          <li class="text-list-item-simple-header">
-            {translate key="user.role.layoutEditor"}
-          </li>
-        {else}
-          <li class="text-list-item-simple-header">
-            {translate key="user.role.layoutEditors"}
-          </li>     
-        {/if}
-        {foreach from=$layoutEditors item=layoutEditor}
-        <li class="text-list-item">{$layoutEditors->getFullName()|escape}</li>
-        {/foreach}
-      </ul>
-    {/if}
-
-    <!-- editores de cópia -->
-    {if count($copyEditors) > 0}
-      <ul class="text-list">
-        {if count($copyEditors) == 1}
-          <li class="text-list-item-simple-header">
-            {translate key="user.role.copyEditor"}
-          </li>
-        {else}
-          <li class="text-list-item-simple-header">
-            {translate key="user.role.copyEditors"}
-          </li>     
-        {/if}
-        {foreach from=$copyEditors item=copyEditor}
-        <li class="text-list-item">{$copyEditors->getFullName()|escape}</li>
-        {/foreach}
-      </ul>
-    {/if}
-
-    <!-- Revisores -->
-    {if count($proofreaders) > 0}
-      <ul class="text-list">
-        {if count($proofreaders) == 1}
-          <li class="text-list-item-simple-header">
-            {translate key="user.role.proofreader"}
-          </li>
-        {else}
-          <li class="text-list-item-simple-header">
-            {translate key="user.role.proofreaders"}
-          </li>     
-        {/if}
-        {foreach from=$proofreaders item=proofreader}
-        <li class="text-list-item">{$proofreaders->getFullName()|escape}</li>
-        {/foreach}
-      </ul>
-    {/if}
-
-	</div>
-{if not ($currentJournal->getLocalizedSetting('contactTitle') == '' && $currentJournal->getLocalizedSetting('contactAffiliation') == '' && $currentJournal->getLocalizedSetting('contactMailingAddress') == '' && empty($journalSettings.contactPhone) && empty($journalSettings.contactFax) && empty($journalSettings.contactEmail))}
-	<!-- Mais uma caixa -->
-	<div class="text-box-section border-box">
-		<h3 class="text-box-title large-size border-title-light">Contato</h3>
-    {if !empty($journalSettings.mailingAddress)}
-      <ul class="text-list">
-        <li class="text-list-item-simple-header">{translate key="common.mailingAddress"}</li>
-        <li class="text-list-item">{$journalSettings.mailingAddress|nl2br}</li>
-      </ul>
-    {/if}
-		<ul class="text-list">
-			<li class="text-list-item-simple-header">
-        {translate key="about.contact.principalContact"}
-      </li>
-      <!-- Nome -->
-      {if !empty($journalSettings.contactName)}
-			<li class="text-list-item">{$journalSettings.contactName|escape}</li>
+<!-- Contatos e equipe -->
+{if not (empty($conferenceSettings.contactTitle) && empty($conferenceSettings.contactAffiliation) && empty($conferenceSettings.contactAffiliation) && empty($conferenceSettings.contactMailingAddress) && empty($conferenceSettings.contactPhone) && empty($conferenceSettings.contactFax) && empty($conferenceSettings.contactEmail))}
+<h3 class="text-box-title large-size border-title-light">{translate key="about.contact.principalContact"}</h3>
+<ul>
+  {if !empty($conferenceSettings.contactName)}
+    <li class="text-list-item"> <!-- Titulação antes do nome -->
+      {if !empty($conferenceSettings.contactTitle)}
+        {$conferenceSettings.contactTitle|escape}
       {/if}
-      <!-- titulação -->
-      {assign var=s value=$currentJournal->getLocalizedSetting('contactTitle')}
-      {if $s}
-			 <li class="text-list-item">{$s|escape}</li>
-      {/if}
-      <!-- Instituição -->
-      {assign var=s value=$currentJournal->getLocalizedSetting('contactAffiliation')}
-      {if $s}
-			 <li class="text-list-item">{$s|escape}</li>
-      {/if}
+        {$conferenceSettings.contactName|escape}
+    </li>
+  {/if}
+  {if !empty($conferenceSettings.contactAffiliation.$currentLocale)}
+    <li class="text-list-item">{$conferenceSettings.contactAffiliation.$currentLocale|escape}</li>
+  {/if}
+  {if !empty($conferenceSettings.contactMailingAddress)}
+    <li class="text-list-item">{$conferenceSettings.contactMailingAddress|nl2br}</li>
+  {/if}
+  {if !empty($conferenceSettings.contactPhone)}
+    <li class="text-list-item">{translate key="about.contact.phone"}: {$conferenceSettings.contactPhone|escape}</li>
+  {/if}
+  {if !empty($conferenceSettings.contactFax)}
+    <li class="text-list-item">{translate key="about.contact.fax"}: {$conferenceSettings.contactFax|escape}</li>
+  {/if}
+  {if !empty($conferenceSettings.contactEmail)}
+    <li class="text-list-item">{translate key="about.contact.email"}: {mailto address=$conferenceSettings.contactEmail|escape encode="hex"}</li>
+  {/if}
+</ul>
+{/if}
 
-      <!-- Endereço postal -->
-      {assign var=s value=$currentJournal->getLocalizedSetting('contactMailingAddress')}
-      {if $s}
-       <li class="text-list-item">{$s|escape}</li>
-      {/if}
-      <!-- Telefone -->
-      {if !empty($journalSettings.contactPhone)}
-       <li class="text-list-item">{translate key="about.contact.phone"}: {$journalSettings.contactPhone|escape}</li>
-      {/if}
-      <!-- Fax -->
-      {if !empty($journalSettings.contactFax)}
-      <li class="text-list-item">
-        {translate key="about.contact.fax"}: {$journalSettings.contactFax|escape}
-      </li>
-      {/if}
-      <!-- Email -->
-      {if !empty($journalSettings.contactEmail)}
-        <li class="text-list-item">
-        {translate key="about.contact.email"}: {mailto address=$journalSettings.contactEmail|escape encode="hex"}</li>
-      {/if}
-		</ul>
-	</div>
+{if not (empty($conferenceSettings.supportName) && empty($conferenceSettings.supportPhone) && empty($conferenceSettings.supportEmail))}
+<h3 class="text-box-title large-size border-title-light">{translate key="about.contact.supportContact"}</h3>
+<ul>
+  {if !empty($conferenceSettings.supportName)}
+    <li class="text-list-item">{$conferenceSettings.supportName|escape}</li>
+  {/if}
+  {if !empty($conferenceSettings.supportPhone)}
+    <li class="text-list-item">{translate key="about.contact.phone"}: {$conferenceSettings.supportPhone|escape}</li>
+  {/if}
+  {if !empty($conferenceSettings.supportEmail)}
+    <li class="text-list-item">{translate key="about.contact.email"}: {mailto address=$conferenceSettings.supportEmail|escape encode="hex"}</li>
+  {/if}
+</ul>
+{/if}
+
+{foreach from=$groups item=group}
+  <h4>{$group->getLocalizedTitle()}</h4>
+  {assign var=groupId value=$group->getId()}
+  {assign var=members value=$teamInfo[$groupId]}
+
+  <ol class="organizingTeam">
+    {foreach from=$members item=member}
+      {assign var=user value=$member->getUser()}
+      <li><a href="javascript:openRTWindow('{url op="organizingTeamBio" path=$user->getId()}')">{$user->getFullName()|escape}</a>{if $user->getAffiliation()}, {$user->getAffiliation()|escape}{/if}{if $user->getCountry()}{assign var=countryCode value=$user->getCountry()}{assign var=country value=$countries.$countryCode}, {$country|escape}{/if}</li>
+    {/foreach}{* $members *}
+  </ol>
+{/foreach}{* $groups *}
+
+{if count($directors) > 0}
+  {if count($directors) == 1}
+    <h4>{translate key="user.role.director"}</h4>
+  {else}
+    <h4>{translate key="user.role.directors"}</h4>
+  {/if}
+
+  <ol class="organizingTeam">
+    {foreach from=$directors item=director}
+      <li><a href="javascript:openRTWindow('{url op="organizingTeamBio" path=$director->getId()}')">{$director->getFullName()|escape}</a>{if $director->getAffiliation()}, {$director->getAffiliation()|escape}{/if}{if $director->getCountry()}{assign var=countryCode value=$director->getCountry()}{assign var=country value=$countries.$countryCode}, {$country|escape}{/if}</li>
+    {/foreach}
+  </ol>
+{/if}
+
+{if count($trackDirectors) > 0}
+  {if count($trackDirectors) == 1}
+    <h4>{translate key="user.role.trackDirector"}</h4>
+  {else}
+    <h4>{translate key="user.role.trackDirectors"}</h4>
+  {/if}
+
+  <ol class="organizingTeam">
+    {foreach from=$trackDirectors item=trackDirector}
+      <li><a href="javascript:openRTWindow('{url op="organizingTeamBio" path=$trackDirector->getId()}')">{$trackDirector->getFullName()|escape}</a>{if $trackDirector->getAffiliation()}, {$trackDirector->getAffiliation()|escape}{/if}{if $trackDirector->getCountry()}{assign var=countryCode value=$trackDirector->getCountry()}{assign var=country value=$countries.$countryCode}, {$country|escape}{/if}</li>
+    {/foreach}
+  </ol>
+{/if}
+<!-- Politicas -->
+{if $currentSchedConf && $currentSchedConf->getLocalizedSetting('reviewPolicy') != ''}
+<div id="peerReviewProcess"><h3>{translate key="about.peerReviewProcess"}</h3>
+<p>{$currentSchedConf->getLocalizedSetting('reviewPolicy')|nl2br}</p>
+
+<div class="separator">&nbsp;</div>
+</div>
+{/if}
+
+{if $currentConference->getLocalizedSetting('archiveAccessPolicy') != ''}
+<div id="archiveAccessPolicy"><h3>{translate key="about.archiveAccessPolicy"}</h3>
+<p>{$currentConference->getLocalizedSetting('archiveAccessPolicy')|nl2br}</p>
+
+<div class="separator">&nbsp;</div>
+</div>
+{/if}
+
+{if !empty($conferenceSettings.enableDelayedOpenAccess) || !empty($conferenceSettings.enableAuthorSelfArchive)}
+<div id="openAccessPolicy"><h3>{translate key="about.openAccessPolicy"}</h3>
+  {if $conferenceSettings.enableDelayedOpenAccess}
+    <h4>{translate key="about.delayedOpenAccess"}</h4> 
+    <p>{translate key="about.delayedOpenAccessDescription" delayedOpenAccessDuration=$conferenceSettings.delayedOpenAccessDuration|escape}</p>
+  {/if}
+  {if $conferenceSettings.enableAuthorSelfArchive} 
+    <h4>{translate key="about.authorSelfArchive"}</h4> 
+    <p>{$currentConference->getLocalizedSetting('authorSelfArchivePolicy')|nl2br}</p>
+  {/if}
+
+<div class="separator">&nbsp;</div>
+</div>
+{/if}
+
+{if $conferenceSettings.enableLockss && $currentConference->getLocalizedSetting('lockssLicense') != ''}
+<div id="archiving"><h3>{translate key="about.archiving"}</h3>
+<p>{$currentConference->getLocalizedSetting('lockssLicense')|nl2br}</p>
+
+<div class="separator">&nbsp;</div>
+</div>
+{/if}
+
+{foreach key=key from=$currentConference->getLocalizedSetting('customAboutItems') item=customAboutItem name=customAboutItems}
+  {if !empty($customAboutItem.title)}
+    <div id="custom-{$key|escape}"></a><h3>{$customAboutItem.title|escape}</h3>
+    <p>{$customAboutItem.content|nl2br}</p>
+    {if !$smarty.foreach.customAboutItems.last}<div class="separator">&nbsp;</div>{/if}
+    </div>
+  {/if}
+{/foreach}
+
+<!-- Submissoes -->
+<div id="onlineSubmissions">
+  <h3>{translate key="about.onlineSubmissions"}</h3>
+<p>
+  {translate key="about.onlineSubmissions.haveAccount" conferenceTitle=$siteTitle|escape}<br />
+  <a href="{url page="login"}" class="action">{translate key="about.onlineSubmissions.login"}</a>
+</p>
+<p>
+  {translate key="about.onlineSubmissions.needAccount"}<br />
+  <a href="{url page="user" op="account"}" class="action">{translate key="about.onlineSubmissions.registration"}</a>
+</p>
+<p>{translate key="about.onlineSubmissions.registrationRequired"}</p>
+</div>
+
+{if $authorGuidelines != ''}
+  <div class="separator">&nbsp;</div>
+
+  <div id="authorGuidelines">
+    <h3>{translate key="about.authorGuidelines"}</h3>
+  <p>{$authorGuidelines|nl2br}</p>
+  </div>
+{/if}
+
+{if $submissionChecklist}
+  <div class="separator">&nbsp;</div>
+
+  <div id="submissionPreparationChecklist">
+    <h3>{translate key="about.submissionPreparationChecklist"}</h3>
+  <ol>
+    {foreach from=$submissionChecklist item=checklistItem}
+      <li>{$checklistItem.content|nl2br}</li> 
+    {/foreach}
+  </ol>
+  </div>
+{/if}{* $submissionChecklist *}
+
+{if $copyrightNotice != ''}
+  <div class="separator">&nbsp;</div>
+
+  <div id="copyrightNotice">
+    <h3>{translate key="about.copyrightNotice"}</h3>
+  <p>{$copyrightNotice|nl2br}</p>
+  </div>
+{/if}
+
+{if $privacyStatement != ''}
+  <div id="privacyStatement">
+    <h3>{translate key="about.privacyStatement"}</h3>
+  <div class="separator">&nbsp;</div>
+
+  <p>{$privacyStatement|nl2br}</p>
+  </div>
 {/if}
 </div>

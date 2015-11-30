@@ -16,7 +16,7 @@
           {/if} <!-- fecha a index -->
           
           {* Página de SOBRE *}
-          {if $journalAbout}
+          {if $conferenceAbout}
             {include file="portalpadrao/conferencia/sobre.tpl"}
           {/if}
 
