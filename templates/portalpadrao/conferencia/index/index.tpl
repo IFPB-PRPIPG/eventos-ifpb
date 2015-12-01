@@ -34,6 +34,7 @@
           <p>{$schedConf->getLocalizedSetting('introduction')|nl2br}</p>
         {/if}
       </div>
+      <p><a href="{url schedConf=$schedConf->getPath()}" class="action">{translate key="site.schedConfView"}</a>
     {/iterate}
   {else}
     <h1>{translate key="conference.noCurrentConferences"}</h1>
