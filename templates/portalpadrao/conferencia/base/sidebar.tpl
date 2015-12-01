@@ -21,6 +21,17 @@
     {/if}
   </ul>
 
+  {if not $showAboutSchedConf and not $conferencias->eof() and not $showConferences}
+  <ul class="box">
+    <li class="item header">{translate key="about.currentConferences"}</li>
+    {iterate from=conferencias item=conferencia}
+    <li class="item">
+      <a href="{url schedConf=$conferencia->getPath()}">{$conferencia->getFullTitle()}</a>
+    </li>
+    {/iterate}
+  </ul>
+  {/if}
+
   {if $isUserLoggedIn}
     <!-- Menu de login-->
     <ul class="box">

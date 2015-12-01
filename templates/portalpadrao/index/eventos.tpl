@@ -13,10 +13,7 @@
   {/if}
   </a>
   {/iterate}
-<<<<<<< HEAD
-=======
   </div>
->>>>>>> 8c70eac83e394a9a45829cf017fc1bdf8b635f32
   <div class="footer-box alert"></div>
 </div>
 

@@ -4,9 +4,24 @@
 	<div class="text-box-section border-box">
 		<p>{$conferenceSettings.description.pt_BR}</p>
 	</div>
+
+{if not $showAboutSchedConf and not $currentSchedConfs->eof()}
+  <h3 class="text-box-title large-size">
+    {translate key="about.currentConferences"}
+  </h3>
+
+  <div class="text-box-section border-box">
+  <ul class="plain">
+    {iterate from=currentSchedConfs item=schedConf}
+      <li><a href="{url schedConf=$schedConf->getPath()}">{$schedConf->getFullTitle()}</a></li>
+    {/iterate}
+  </ul>
+  </div>
+{/if}
 <!-- Contatos e equipe -->
 {if not (empty($conferenceSettings.contactTitle) && empty($conferenceSettings.contactAffiliation) && empty($conferenceSettings.contactAffiliation) && empty($conferenceSettings.contactMailingAddress) && empty($conferenceSettings.contactPhone) && empty($conferenceSettings.contactFax) && empty($conferenceSettings.contactEmail))}
 <h3 class="text-box-title large-size border-title-light">{translate key="about.contact.principalContact"}</h3>
+
 <ul>
   {if !empty($conferenceSettings.contactName)}
     <li class="text-list-item"> <!-- Titulação antes do nome -->
@@ -34,19 +49,22 @@
 </ul>
 {/if}
 
+
 {if not (empty($conferenceSettings.supportName) && empty($conferenceSettings.supportPhone) && empty($conferenceSettings.supportEmail))}
 <h3 class="text-box-title large-size border-title-light">{translate key="about.contact.supportContact"}</h3>
-<ul>
-  {if !empty($conferenceSettings.supportName)}
-    <li class="text-list-item">{$conferenceSettings.supportName|escape}</li>
-  {/if}
-  {if !empty($conferenceSettings.supportPhone)}
-    <li class="text-list-item">{translate key="about.contact.phone"}: {$conferenceSettings.supportPhone|escape}</li>
-  {/if}
-  {if !empty($conferenceSettings.supportEmail)}
-    <li class="text-list-item">{translate key="about.contact.email"}: {mailto address=$conferenceSettings.supportEmail|escape encode="hex"}</li>
-  {/if}
-</ul>
+<div class="border-box">
+  <ul>
+    {if !empty($conferenceSettings.supportName)}
+      <li class="text-list-item">{$conferenceSettings.supportName|escape}</li>
+    {/if}
+    {if !empty($conferenceSettings.supportPhone)}
+      <li class="text-list-item">{translate key="about.contact.phone"}: {$conferenceSettings.supportPhone|escape}</li>
+    {/if}
+    {if !empty($conferenceSettings.supportEmail)}
+      <li class="text-list-item">{translate key="about.contact.email"}: {mailto address=$conferenceSettings.supportEmail|escape encode="hex"}</li>
+    {/if}
+  </ul>
+</div>
 {/if}
 
 {foreach from=$groups item=group}
@@ -89,7 +107,7 @@
     {/foreach}
   </ol>
 {/if}
-<!-- Politicas -->
+
 {if $currentSchedConf && $currentSchedConf->getLocalizedSetting('reviewPolicy') != ''}
 <div id="peerReviewProcess"><h3>{translate key="about.peerReviewProcess"}</h3>
 <p>{$currentSchedConf->getLocalizedSetting('reviewPolicy')|nl2br}</p>

@@ -29,6 +29,9 @@ class SchedConfHandler extends Handler {
 
 		$this->addCheck(new HandlerValidatorConference($this));
 		$this->addCheck(new HandlerValidatorSchedConf($this));
+
+		$templateMgr =& TemplateManager::getManager();
+		$templateMgr->assign('showConferences', true);
 	}
 
 	/**
@@ -44,6 +47,8 @@ class SchedConfHandler extends Handler {
 		$templateMgr =& TemplateManager::getManager();
 		$this->setupTemplate($conference, $schedConf);
 		$enableAnnouncements = $conference->getSetting('enableAnnouncements');
+		$templateMgr->assign('showConferences', true);
+
 
 		if ($enableAnnouncements) {
 			$enableAnnouncementsHomepage = $conference->getSetting('enableAnnouncementsHomepage');

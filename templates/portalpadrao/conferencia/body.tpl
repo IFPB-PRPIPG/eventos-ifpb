@@ -17,7 +17,7 @@
           
           {* Página de SOBRE *}
           {if $conferenceAbout}
-            {include file="portalpadrao/conferencia/sobre.tpl"}
+            {include file="portalpadrao/conferencia/help/about.tpl"}
           {/if}
 
           {* Página de submissão *}

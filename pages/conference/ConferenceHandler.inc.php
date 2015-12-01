@@ -60,7 +60,15 @@ class ConferenceHandler extends Handler {
 			$singleSchedConf =& $currentSchedConfs->next();
 			Request::redirect(null, $singleSchedConf->getPath());
 		}
+
+		$conferencias = & $schedConfDao->getCurrentSchedConfs($conference->getId());
+		if ($currentSchedConfs && $currentSchedConfs->getCount() == 1) {
+			// If only one sched conf exists, redirect to it.
+			$singleSchedConf =& $currentSchedConfs->next();
+			Request::redirect(null, $singleSchedConf->getPath());
+		}
 		$templateMgr->assign_by_ref('currentSchedConfs', $currentSchedConfs);
+		$templateMgr->assign_by_ref('conferencias', $conferencias);
 
 		$enableAnnouncements = $conference->getSetting('enableAnnouncements');
 		if ($enableAnnouncements) {

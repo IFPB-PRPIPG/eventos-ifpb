@@ -1,3 +1,7 @@
+{if $enableAnnouncementsHomepage}
+  {include file="portalpadrao/conferencia/index/noticias.tpl"}
+{/if}
+
 {if $schedConf}
 <div class="content-box">
     <div class="header-box">{$schedConf->getFullTitle()|escape}</div>
