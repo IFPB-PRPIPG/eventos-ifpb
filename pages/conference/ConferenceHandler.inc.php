@@ -61,7 +61,7 @@ class ConferenceHandler extends Handler {
 			Request::redirect(null, $singleSchedConf->getPath());
 		}
 
-		$conferencias = & $schedConfDao->getCurrentSchedConfs($conference->getId());
+		$conferencias = & $schedConfDao->getEnabledSchedConfs($conference->getId());
 		if ($currentSchedConfs && $currentSchedConfs->getCount() == 1) {
 			// If only one sched conf exists, redirect to it.
 			$singleSchedConf =& $currentSchedConfs->next();

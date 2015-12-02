@@ -21,6 +21,17 @@
     {/if}
   </ul>
 
+  {if $schedConf}
+    {if $schedConf->getPath() == "ISIMPIF"}
+      <ul class="box">
+        <li class="item header">Arquivos</li>
+        <li class="item">
+          <a href="{$baseUrl}/public/ORIENTACOES-PARA-APRESENTACAO-DE-TRABALHOS-ICT-e-Pesquisador.docx">Orientações ICT e Pesquisador</a>
+        </li>
+      </ul>
+    {/if}
+  {/if}
+
   {if not $showAboutSchedConf and not $conferencias->eof() and not $showConferences}
   <ul class="box">
     <li class="item header">{translate key="about.currentConferences"}</li>

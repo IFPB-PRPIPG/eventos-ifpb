@@ -11,7 +11,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body>
+<body class="page-container">
 
 {include file="portalpadrao/base/header.tpl"}
 	{include file="portalpadrao/conferencia/body.tpl"}
