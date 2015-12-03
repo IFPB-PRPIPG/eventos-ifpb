@@ -36,29 +36,29 @@
           </ul>
           <ul class="footer-box">
             <li class="title"><h4>Sobre o Portal</h4></li>
-            <li class="item"><a href="/public/Portaria de Criação do Portal.pdf" target="_blank">Portaria de Criação</a></li>
-            <li class="item"><a href="/public/Diretrizes Portal Periódicos IFPB.pdf" target="_blank">Diretrizes do Portal</a></li>
-            <li class="item"><a href="/public/Diretrizes Portal Periódicos IFPB - APẼNDICES.pdf" target="_blank">Normas</a></li>
+            <li class="item"><a href="">Portaria de Criação</a></li>
+            <li class="item"><a href="">Diretrizes do Portal</a></li>
+            <li class="item"><a href="">Normas</a></li>
           </ul>
 
           <ul class="footer-box">
-            <li class="title"><h4>Fale com o IFPB</h4></li>
-            <li class="item">portalperiodicos@ifpb.edu.br</li>
+            <li class="title"><h4>Contato SIMPIF</h4></li>
+            <li class="item"><a href="mailto:simpif@ifpb.edu.br">simpif@ifpb.edu.br</a></li>
           </ul>
 
           <ul class="footer-box">
             <li class="title"><h4>Redes Sociais</h4></li>
             <li class="item">
-              <a href="https://pt-br.facebook.com/pages/IFPB-Oficial/261855270518349" target="_blank">Facebook</a>
+              <a href="https://www.facebook.com/simpif/?ref=hl" target="_blank">Facebook</a>
             </li>
             <li class="item">
-              <a href="https://twitter.com/ifpboficial" target="_blank">Twitter</a>
+              <a href="">Twitter</a>
             </li>
             <li class="item">
-              <a href="https://www.youtube.com/user/TVIFPB" target="_blank">Youtube</a>
+              <a href="">Youtube</a>
             </li>
             <li class="item">
-              <a href="https://www.flickr.com/search/?text=ifpb" target="_blank">Flickr</a>
+              <a href="">Flickr</a>
             </li>
             <li class="item">
               <ul class="footer-box">
