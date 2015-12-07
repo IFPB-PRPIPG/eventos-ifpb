@@ -102,10 +102,17 @@
 
   <!--Menu sobre -->
   <ul class="box">
-    <li class="item header">Sobre</li>    
-    <li class="item">
-      <a href="{url page="about"}">{translate key="navigation.about"}</a>
-    </li>     
+    <li class="item header">Informações</li>
+      {if $schedConf}
+      <li class="item">
+        <a href="{url page="about"}">{translate key="navigation.about"}</a>
+      </li>
+      {foreach key=key from=$currentConference->getLocalizedSetting('customAboutItems') item=customAboutItem}
+        {if !empty($customAboutItem.title)}
+          <li class="item"><a href="{url page="about" op="editorialPolicies" anchor=custom-$key}">{$customAboutItem.title|escape}</a></li>
+        {/if}
+      {/foreach}
+    {/if}
     <li class="item">
       <a href="{url page="about" op="contact"}">{translate key="about.contact"}</a>
     </li>  
