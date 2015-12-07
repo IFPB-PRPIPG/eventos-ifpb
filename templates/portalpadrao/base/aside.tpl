@@ -15,7 +15,16 @@
     {/iterate}
   </ul>
 
-
+  {if $noticesSideBar && $noticesSideBar->records|@count > 0}
+  <ul class="box">
+    <li class="item header">Comunicados</li>
+    {iterate from=noticesSideBar item=notice}
+      <li class="item">
+        <a href="{url page="notify" op='view' path=$notice->getNotifyId() }">{$notice->getTitle()}</a>
+      </li>
+    {/iterate}
+  </ul>
+  {/if}
   <!-- Usuário -->
   {if $isUserLoggedIn}
   <ul class="box">

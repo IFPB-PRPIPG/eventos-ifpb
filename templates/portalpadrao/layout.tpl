@@ -11,6 +11,10 @@
   <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="{$baseUrl}/templates/portalpadrao/assets/images/icon-portal.png" type="image/png" sizes="16x16">
+  {if $notifyAdmin}
+  <link rel="stylesheet" href="{$baseUrl}/templates/portalpadrao/assets/stylesheet/trix.css">
+  <script src="{$baseUrl}/templates/portalpadrao/assets/js/trix.js"></script>
+  {/if}
 </head>
 <body>
 

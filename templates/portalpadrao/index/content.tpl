@@ -56,6 +56,17 @@
         {include file="templates/about/submissions.tpl"}
       {/if}  
 
+      {if $notifyAdmin}
+        {include file="portalpadrao/admin/notify.tpl"}
+      {/if}
+
+      {if $notifyAdminShow}
+        {include file="portalpadrao/admin/notifyShow.tpl"}
+      {/if}
+
+      {if $notifyView}
+        {include file="portalpadrao/admin/notifyView.tpl"}
+      {/if}
     </main> <!-- /main-container -->
   </div>
 </div>

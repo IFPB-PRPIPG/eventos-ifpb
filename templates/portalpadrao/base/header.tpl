@@ -42,7 +42,9 @@
         <div class="center-content">
           <div class="header-logo">
             <span>Portal de</span>
+            <a href="{$baseUrl}/" style="text-transform:none;">
             <h1 class="page-name">Eventos</h1>
+            </a>
             <span>Instituto Federal de Educação Ciência e Tecnologia da Paraíba</span>
           </div>
           <form id="simpleSearchForm" method="post" action="{url page="search" op="search"}" class="form-control form-search-header">

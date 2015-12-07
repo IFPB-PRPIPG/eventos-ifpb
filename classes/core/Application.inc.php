@@ -128,7 +128,8 @@ class Application extends PKPApplication {
 			'TrackDirectorsDAO' => 'conference.TrackDirectorsDAO',
 			'TrackDirectorSubmissionDAO' => 'submission.trackDirector.TrackDirectorSubmissionDAO',
 			'UserDAO' => 'user.UserDAO',
-			'UserSettingsDAO' => 'user.UserSettingsDAO'
+			'UserSettingsDAO' => 'user.UserSettingsDAO',
+			'NotifyDAO' => 'notify.NotifyDAO'
 		));
 	}
 

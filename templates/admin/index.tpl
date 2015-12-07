@@ -34,5 +34,15 @@
 	<li>&#187; <a href="{url op="mergeUsers"}">{translate key="admin.mergeUsers"}</a></li>
 	{call_hook name="Templates::Admin::Index::AdminFunctions"}
 </ul>
+
+<h3>Comunicados</h3>
+<ul class="plain">
+	<li>
+		<a href="{url page="notify" op="index"}">Cadastrar novos comunicados</a>
+	</li>
+	<li>
+		<a href="{url page="notify" op="showAll"}">Visualizar todos os comunicados</a>
+	</li>
+	</ul>
 </div>
 {include file="common/footer.tpl"}

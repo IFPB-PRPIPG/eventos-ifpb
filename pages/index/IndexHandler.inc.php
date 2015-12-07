@@ -91,10 +91,18 @@ class IndexHandler extends Handler {
 				$img = unserialize($c[1])['uploadName'];
 				array_push($resultado, array($c[0], $img, $c[2]));
 			}
-
 			$templateMgr->assign('resultado', $resultado);
 
+			/*
+			* Comunicados
+			*/
+			$notifyDAO = DAORegistry::getDAO('NotifyDAO');
+			$notices = $notifyDAO->getAllNotify();
+			$templateMgr->assign_by_ref('noticesSideBar', $notices);
 
+			/*
+			* Assings Gerais
+			*/
 			$templateMgr->assign('intro', $site->getLocalizedIntro());
 			$conferences =& $conferenceDao->getEnabledConferences();
 			$templateMgr->assign_by_ref('conferences', $conferences);
