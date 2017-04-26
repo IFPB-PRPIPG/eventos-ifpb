@@ -19,6 +19,12 @@
         </a>
       </li>
     {/if}
+
+    {foreach from=$navMenuItems item=navItem}
+			{if $navItem.url != '' && $navItem.name != ''}
+				<li class="item"><a href="{if $navItem.isAbsolute}{$navItem.url|escape}{else}{$navItem.url|escape}{/if}">{if $navItem.isLiteral}{$navItem.name|escape}{else}{translate key=$navItem.name}{/if}</a></li>
+			{/if}
+		{/foreach}
   </ul>
 
   {if $schedConf}
@@ -32,7 +38,7 @@
     {/if}
   {/if}
 
-  {if not $showAboutSchedConf and not $conferencias->eof() and not $showConferences}
+  {if $conferencia and not $showAboutSchedConf and not $conferencias->eof() and not $showConferences}
   <ul class="box">
     <li class="item header">{translate key="about.currentConferences"}</li>
     {iterate from=conferencias item=conferencia}

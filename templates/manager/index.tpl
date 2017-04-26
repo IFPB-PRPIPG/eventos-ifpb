@@ -8,6 +8,7 @@
  *
  * $Id$
  *}
+{assign var=category value='generic'}
 {strip}
 {assign var="pageTitle" value="manager.conferenceSiteManagement"}
 {include file="common/header.tpl"}
@@ -32,6 +33,7 @@
 		<li>&#187; <a href="{url op="conferenceEventLog" clearPageContext=1}">{translate key="manager.conferenceEventLog"}</a></li>
 	{/if}
 	<li>&#187; <a href="{url op="plugins"}">{translate key="manager.plugins"}</a></li>
+	<li>&#187; <a href="{url op="plugin"  path=$category|to_array:'StaticPagesPlugin':'settings'}">Adicionar página</a></li>
 	{call_hook name="Templates::Manager::Index::ManagementPages"}
 </ul>
 </div>

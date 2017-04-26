@@ -15,6 +15,8 @@
 
 import('form.Form');
 
+require_once 'navFuncs.php';
+
 class StaticPagesEditForm extends Form {
 	/** @var $conferenceId int */
 	var $conferenceId;
@@ -155,8 +157,10 @@ class StaticPagesEditForm extends Form {
 		if (isset($this->staticPageId)) {
 			$staticPagesDAO->updateStaticPage($staticPage);
 		} else {
-			$staticPagesDAO->insertStaticPage($staticPage);
+			$staticPage->setStaticPageId($staticPagesDAO->insertStaticPage($staticPage));
 		}
+
+		modifyNavItems($staticPage);
 	}
 
 	function display() {

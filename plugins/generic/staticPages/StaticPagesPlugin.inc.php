@@ -15,6 +15,8 @@
 
 import('classes.plugins.GenericPlugin');
 
+require_once 'navFuncs.php';
+
 class StaticPagesPlugin extends GenericPlugin {
 
 	function getName() {
@@ -222,6 +224,8 @@ class StaticPagesPlugin extends GenericPlugin {
 				$staticPagesDAO =& DAORegistry::getDAO('StaticPagesDAO');
 				$staticPagesDAO->deleteStaticPageById($staticPageId);
 
+				removeNavItem($conference->getId(), $staticPageId);
+
 				$templateMgr->assign(array(
 					'currentUrl' => Request::url(null, null, null, null, array($this->getCategory(), $this->getName(), 'settings')),
 					'pageTitle' => 'plugins.generic.staticPages.displayName',
@@ -252,6 +256,15 @@ class StaticPagesPlugin extends GenericPlugin {
 	 */
 	function getInstallSchemaFile() {
 		return $this->getPluginPath() . '/' . 'schema.xml';
+	}
+
+	/**
+	 * Get the name of the settings file to be installed on new conference
+	 * creation.
+	 * @return string
+	 */
+	function getNewConferencePluginSettingsFile() {
+		return $this->getPluginPath() . '/settings.xml';
 	}
 }
 
