@@ -224,7 +224,8 @@ class StaticPagesPlugin extends GenericPlugin {
 				$staticPagesDAO =& DAORegistry::getDAO('StaticPagesDAO');
 				$staticPagesDAO->deleteStaticPageById($staticPageId);
 
-				removeNavItem($conference->getId(), $staticPageId);
+				$conferenceSettingsDAO =& DAORegistry::getDAO('ConferenceSettingsDAO');
+				remove_item_nav($conferenceSettingsDAO, $conference->getId(), $staticPageId, AppLocale::getLocale());
 
 				$templateMgr->assign(array(
 					'currentUrl' => Request::url(null, null, null, null, array($this->getCategory(), $this->getName(), 'settings')),

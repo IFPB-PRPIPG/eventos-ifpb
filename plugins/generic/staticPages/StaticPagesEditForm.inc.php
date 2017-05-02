@@ -160,7 +160,8 @@ class StaticPagesEditForm extends Form {
 			$staticPage->setStaticPageId($staticPagesDAO->insertStaticPage($staticPage));
 		}
 
-		modifyNavItems($staticPage);
+		$conferenceSettingsDAO =& DAORegistry::getDAO('ConferenceSettingsDAO');
+		add_item_nav($conferenceSettingsDAO, $staticPage, AppLocale::getLocale());
 	}
 
 	function display() {

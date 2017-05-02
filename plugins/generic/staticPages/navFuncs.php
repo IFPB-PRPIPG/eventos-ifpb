@@ -1,67 +1,56 @@
 <?php
 // XGH
 
-function getNavItemsByConferenceId($id)
+function get_nav_items($dao, $conferenceId, $locale)
 {
-    $conferenceSettingsDAO =& DAORegistry::getDAO('ConferenceSettingsDAO');
-    $conferenceSettings = $conferenceSettingsDAO->getConferenceSettings($id);
-
-    $navItems = $conferenceSettings['navItems'];
-
-    if (is_null($navItems)) {
-        $navItems = array('pt_BR'=> array());
-    }
-
-    return $navItems;
+    $conference = $dao->getConferenceSettings($conferenceId);
+    return (array_key_exists('navItems', $conference)
+        && !is_null($conference['navItems']))
+        ? $conference['navItems']
+        : array($locale => array());
 }
 
-function getNavItemIndexByStaticPageId($id, $navItems)
+function get_item_index($staticPageId, $items, $locale)
 {
     $index = -1;
-    foreach ($navItems['pt_BR'] as $key => $navItem) {
-        if (array_key_exists('staticPage', $navItem) && $navItem['staticPage'] == $id) {
+    foreach ($items[$locale] as $key => $item) {
+        if (array_key_exists('staticPage', $item)
+            && $item['staticPage'] == $staticPageId) {
             $index = $key;
             break;
-       }
+        }
     }
     return $index;
 }
 
-function modifyNavItems($staticPage)
+function add_item_nav($dao, $page, $locale)
 {
-    $navItems = getNavItemsByConferenceId($staticPage->getConferenceId());
-
+    $items = get_nav_items($dao, $page->getConferenceId(), $locale);
     $item = array(
-        'name' => current($staticPage->getTitle()),
+        'name' => $page->getTitle($locale),
         'isLiteral' => '1',
-        'url' =>  Request::getBaseUrl() . '/index.php/' . Request::getRequestedConferencePath() . '/' . 'index/pages/view/' . $staticPage->getPath(),
         'isAbsolute' => '1',
-        'staticPage' => $staticPage->getStaticPageId()
+        'url' => Request::getRequestedConferencePath()
+            . '/index/pages/view/'
+            . $page->getPath(),
+        'staticPage' => $page->getStaticPageId()
     );
-
-    $index = getNavItemIndexByStaticPageId($staticPage->getStaticPageId(),  $navItems);
-
+    $index = get_item_index($page->getStaticPageId(), $items, $locale);
     if ($index < 0) {
-        $navItems['pt_BR'][] = $item;
+        $items[$locale][] = $item;
     } else {
-        $navItems['pt_BR'][$index] = $item;
+        $items[$locale][$index] = $item;
     }
-
-    $conferenceSettingsDAO =& DAORegistry::getDAO('ConferenceSettingsDAO');
-    $conferenceSettingsDAO->updateSetting($staticPage->getConferenceId(), 'navItems', $navItems, 'object', true);
+    $dao->updateSetting($page->getConferenceId(), 'navItems', $items, 'object', true);
 }
 
-function removeNavItem($conferenceId, $staticPageId)
+function remove_item_nav($dao, $conferenceId, $staticPageId, $locale)
 {
-    $navItems = getNavItemsByConferenceId($conferenceId);
-    $index = getNavItemIndexByStaticPageId($staticPageId,  $navItems);
-
+    $items = get_nav_items($dao, $conferenceId, $locale);
+    $index = get_item_index($staticPageId, $items, $locale);
     if ($index < 0) {
         return;
     }
-
-    unset($navItems['pt_BR'][$index]);
-
-    $conferenceSettingsDAO =& DAORegistry::getDAO('ConferenceSettingsDAO');
-    $conferenceSettingsDAO->updateSetting($conferenceId, 'navItems', $navItems, 'object', true);
+    unset($items[AppLocale::getLocale()][$index]);
+    $dao->updateSetting($conferenceId, 'navItems', $items, 'object', true);
 }

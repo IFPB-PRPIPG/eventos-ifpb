@@ -21,10 +21,10 @@
     {/if}
 
     {foreach from=$navMenuItems item=navItem}
-			{if $navItem.url != '' && $navItem.name != ''}
-				<li class="item"><a href="{if $navItem.isAbsolute}{$navItem.url|escape}{else}{$navItem.url|escape}{/if}">{if $navItem.isLiteral}{$navItem.name|escape}{else}{translate key=$navItem.name}{/if}</a></li>
-			{/if}
-		{/foreach}
+        {if $navItem.url != '' && $navItem.name != ''}
+            <li class="item"><a href="{$baseUrl}/{$navItem.url|escape}">{$navItem.name|escape}</a></li>
+        {/if}
+    {/foreach}
   </ul>
 
   {if $schedConf}
